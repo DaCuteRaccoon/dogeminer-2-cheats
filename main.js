@@ -2,8 +2,10 @@ let int = document.getElementById('int')
 let dps = document.getElementById('dps')
 let autoclick = document.getElementById('click')
 
-let dpscheat = ''
-let clickcheat = ''
+let dpscheat = '' // Init the dps cheat
+let clickcheat = '' // Init the autoclick cheat
+
+document.querySelector('a').onclick = (e) => { e.preventDefault(); window.alert('Use it on the Dogeminer 2 website, not here.') } // Alert user if they try to use the cheat on the cheat website, instead of the real game.
 
 function update () {
   if (dps.checked) {
