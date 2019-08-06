@@ -6,8 +6,12 @@ let dpscheat = ''
 let clickcheat = ''
 
 function update () {
-  if (dps.checked) dpscheat = `setInterval(dogeminer.bonus.addSpecialBonus, int);`
-  if (autoclick.checked) clickcheat = `setInterval(dogeminer.rock.mineRock, int);`
+  if (dps.checked) {
+    dpscheat = 'setInterval(dogeminer.bonus.addSpecialBonus, int);'
+  } else dpscheat = ''
+  if (autoclick.checked) {
+    clickcheat = 'setInterval(dogeminer.rock.mineRock, int);'
+  } else clickcheat = ''
   document.getElementsByTagName('a')[0].href = `javascript: let int=${int.value ? int.value : 1};${dpscheat}${clickcheat}void 0;`
 }
 

@@ -1,5 +1,5 @@
-* {
-  text-align: center
+body {
+  margin: 10em;
 }
 
 
@@ -12,4 +12,23 @@ h1 {
 
 a {
   user-select: none;
+}
+
+
+input {
+  text-align: center;
+  border-radius: 10em;
+  border: 0.2em black solid;
+  transition: all 1s;
+}
+
+input:focus {
+  border-radius: 1em;
+  font-size: 2em;
+  outline: 0;
+}
+
+a {
+  color: red;
+  font-size: 3em;
 }
