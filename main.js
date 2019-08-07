@@ -1,3 +1,6 @@
+let wittySentences = ['hackeing!', 'Not approved by rkn!', 'Hacks by Jack5079!']
+document.querySelector('h2').innerText = wittySentences[Math.floor(Math.random() * wittySentences.length)]
+
 let int = document.getElementById('int')
 let dps = document.getElementById('dps')
 let autoclick = document.getElementById('click')
