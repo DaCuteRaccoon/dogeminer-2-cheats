@@ -1,10 +1,10 @@
-let wittySentences = ['hackeing!', 'Not approved by rkn!', 'Hacks by Jack5079!']
+const wittySentences = ['hackeing!', 'Not approved by rkn!', 'Hacks by Jack5079!']
 document.querySelector('h2').innerText = wittySentences[Math.floor(Math.random() * wittySentences.length)]
 
-let int = document.getElementById('int')
-let dps = document.getElementById('dps')
-let loot = document.getElementById('loot')
-let autoclick = document.getElementById('click')
+const int = document.getElementById('int')
+const dps = document.getElementById('dps')
+const loot = document.getElementById('loot')
+const autoclick = document.getElementById('click')
 
 let dpscheat = '' // Init the dps cheat
 let clickcheat = '' // Init the autoclick cheat
