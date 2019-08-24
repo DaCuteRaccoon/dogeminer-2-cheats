@@ -1,5 +1,5 @@
-const wittySentences = ['hackeing!', 'Not approved by rkn!', 'Hacks by Jack5079!']
-document.querySelector('h2').innerText = wittySentences[Math.floor(Math.random() * wittySentences.length)]
+import randomSplash from './splashes.mjs'
+document.querySelector('h2').innerText = randomSplash()
 
 const int = document.getElementById('int')
 const dps = document.getElementById('dps')
