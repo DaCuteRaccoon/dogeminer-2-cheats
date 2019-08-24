@@ -1,5 +1,5 @@
 import randomSplash from './splashes.mjs'
-document.querySelector('h2').innerText = randomSplash()
+document.querySelector('h2').innerHTML = randomSplash()
 
 const int = document.getElementById('int')
 const dps = document.getElementById('dps')
