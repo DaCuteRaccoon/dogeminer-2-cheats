@@ -14,7 +14,6 @@
     <meta property="og:description" content="A configurable bookmarklet that lets you cheat in Dogeminer 2" />
     <meta name="theme-color" content="#121317">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="dark.css" media="(prefers-color-scheme: dark)">
   </head>
 
   <body>
@@ -28,19 +27,23 @@
     <input type="number" id="int" placeholder="Interval" aria-label="Interval" value="1" min="1">
 
     <p>Choose the cheats you want to be enabled.</p>
-    <input type="checkbox" name="dps" id="dps" checked><label for="dps">Increase your DPS</label><br>
-    <input type="checkbox" name="click" id="click" checked><label for="click">Automatically click the rock</label><br>
-    <input type="checkbox" name="loot" id="loot" checked><label for="loot">Automatically get and collect loot</label>
+    <fieldset>
+      <legend>Features</legend>
+      <input type="checkbox" name="dps" id="dps" checked><label for="dps">Increase your <abbr
+          title="Dogecoin Per Second">DPS</abbr></label><br>
+      <input type="checkbox" name="click" id="click" checked><label for="click">Autoclicker</label><br>
+      <input type="checkbox" name="loot" id="loot" checked><label for="loot">More loot</label><br>
+      <input type="checkbox" name="strength" id="strength" checked><label for="strength">Better click strength</label>
+    </fieldset>
 
-    <p>Finally, drag this link to your bookmarks bar:</p><br>
-    <a
-      href="javascript: let int=1;setInterval(dogeminer.bonus.addSpecialBonus, int);setInterval(dogeminer.loot.devLoot, int);void 0;">Dogeminer
-      2 Hack</a>
+
+    <p>Finally, drag this link to your bookmarks bar:</p>
+    <a>Dogeminer 2 Hack</a>
     <p>Click it whenever you want to cheat! (Make sure you're in the Dogeminer 2 tab before activating)</p>
     <script src="main.mjs" type="module" defer></script>
     <h3>Tutorial</h3><br>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/70EJFFekB3c" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe id='ivplayer' type='text/html' width='640' height='360' src='https://www.invidio.us/embed/70EJFFekB3c'
+      frameborder='0'></iframe>
   </body>
 
 </html>

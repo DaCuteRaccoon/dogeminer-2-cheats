@@ -1,54 +1,58 @@
 body {
-  margin: 10em;
+  margin: 3em;
+  background: black;
+  color: white;
 }
 
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-
 h2 {
-  position: absolute;
-  display: inline-block;
+  display: inline;
   font-size: 2em;
   color: yellow;
-  margin-left: -0.5em;
+  position: absolute;
   transform: rotate(45deg);
   animation: splash 1s ease-in infinite;
 }
+
 h1 {
   display: inline;
   font-size: 5em;
 }
 
-a {
-  user-select: none;
-}
-
-
-input {
-  text-align: center;
-  border-radius: 10em;
-  border: 0.2em black solid;
-  transition: all 1s;
-}
-
-input:focus {
-  border-radius: 1em;
-  font-size: 2em;
-  outline: 0;
+fieldset {
+  display: inline;
 }
 
 a {
   color: red;
   font-size: 3em;
+  user-select: none;
+}
+
+input {
+  text-align: center;
+  border-radius: 10em;
+  border: 0.2em white solid;
+  background: black;
+  color: white;
+  transition: box-shadow 1s;
+}
+
+input[type="number"]:focus {
+  box-shadow: 0 0 1em 1em red;
+}
+
+input:checked {
+  box-shadow: 0 0 0.3em 0.3em blue;
 }
 
 @keyframes splash {
   0% {
     font-size: 2em;
   }
-
   50% {
     font-size: 2.1em;
   }
