@@ -23,5 +23,6 @@ int.addEventListener('input', update)
 dps.addEventListener('click', update)
 loot.addEventListener('click', update)
 autoclick.addEventListener('click', update)
+strength.addEventListener('click', update)
 
 update()
