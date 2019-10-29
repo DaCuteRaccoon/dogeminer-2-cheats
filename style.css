@@ -21,11 +21,7 @@ small::after {
   content: ')'
 }
 
-h1 {
-  display: inline;
-}
-
-fieldset {
+h1, fieldset {
   display: inline;
 }
 
@@ -59,4 +55,8 @@ input:checked {
   50% {
     font-size: 0.7em;
   }
+}
+
+label {
+  letter-spacing: 0.1em;
 }
