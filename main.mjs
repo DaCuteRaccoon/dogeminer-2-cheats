@@ -11,7 +11,7 @@ document.querySelector('a').onclick = e => { e.preventDefault(); window.alert('U
 
 function update () {
   document.querySelector('a').href = `javascript:
-  let int=${int.value || 1};
+  let int=${+int.value || 1};
   ${dps.checked ? 'setInterval(dogeminer.bonus.addSpecialBonus, int)' : ''};
   ${autoclick.checked ? 'setInterval(dogeminer.rock.mineRock, int)' : ''};
   ${loot.checked ? 'setInterval(dogeminer.loot.devLoot, int)' : ''};
