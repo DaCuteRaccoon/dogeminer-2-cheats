@@ -19,10 +19,9 @@ function update () {
   void 0;`
 }
 
-int.addEventListener('input', update)
-dps.addEventListener('click', update)
-loot.addEventListener('click', update)
-autoclick.addEventListener('click', update)
-strength.addEventListener('click', update)
+
+document.querySelectorAll('input').forEach(e => {
+  e.addEventListener('input', update)
+})
 
 update()
