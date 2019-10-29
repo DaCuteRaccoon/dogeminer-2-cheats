@@ -8,18 +8,21 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-h2 {
-  display: inline;
-  font-size: 2em;
+small {
   color: yellow;
-  position: absolute;
-  transform: rotate(45deg);
-  animation: splash 1s ease-in infinite;
+  animation: splash 3s ease-in-out infinite;
+}
+
+small::before {
+  content: '('
+}
+
+small::after {
+  content: ')'
 }
 
 h1 {
   display: inline;
-  font-size: 5em;
 }
 
 fieldset {
@@ -50,13 +53,10 @@ input:checked {
 }
 
 @keyframes splash {
-  0% {
-    font-size: 2em;
+  from, to {
+    font-size: 0.5em;
   }
   50% {
-    font-size: 2.1em;
-  }
-  100% {
-    font-size: 2em;
+    font-size: 0.7em;
   }
 }
