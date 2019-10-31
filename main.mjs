@@ -7,7 +7,7 @@ const loot = document.getElementById('loot')
 const autoclick = document.getElementById('click')
 const strength = document.getElementById('strength')
 
-document.querySelector('a').onclick = e => { e.preventDefault(); window.alert('Use it on the Dogeminer 2 website, not here.') } // Alert user if they try to use the cheat on the cheat website, instead of the real game.
+document.querySelector('a').onclick = e => { e.preventDefault() } // prevent click
 
 function update () {
   document.querySelector('a').href = `javascript:
