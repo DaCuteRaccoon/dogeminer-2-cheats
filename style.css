@@ -26,9 +26,10 @@ h1, fieldset {
 }
 
 a {
-  color: red;
+  color: wheat;
   font-size: 3em;
   user-select: none;
+  text-decoration-color: white;
 }
 
 input {
