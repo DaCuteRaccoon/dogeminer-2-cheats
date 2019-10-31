@@ -26,6 +26,7 @@ h1, fieldset {
 }
 
 a {
+  cursor: grab;
   color: wheat;
   font-size: 3em;
   user-select: none;
