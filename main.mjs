@@ -7,7 +7,7 @@ const loot = document.getElementById('loot')
 const autoclick = document.getElementById('click')
 const strength = document.getElementById('strength')
 
-document.querySelector('a').onclick = e => { e.preventDefault() } // prevent click
+document.querySelector('a').addEventListener('click', e => { e.preventDefault() }) // prevent click
 
 function update () {
   document.querySelector('a').href = `javascript:
