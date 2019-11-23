@@ -1,11 +1,35 @@
-body {
-  margin: 3em;
-  background: black;
-  color: white;
+html, body {
+  background: #fff;
+  color: #000;
+  padding: 1em;
+  border-radius: 1em
 }
 
-* {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+.circle {
+  background: linear-gradient(to top right, blue, red);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  display: block
+}
+
+footer {
+  margin: 1em;
+  margin-top: 2em;
+  border-top: 1px solid #000
+}
+
+@media(prefers-color-scheme:dark) {
+  html, body {
+    color: #fff;
+    background: #000
+  }
+  footer {
+    border-top: 1px solid #fff
+  }
 }
 
 small {
