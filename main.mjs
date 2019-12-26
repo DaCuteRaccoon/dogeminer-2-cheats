@@ -7,7 +7,9 @@ const loot = document.getElementById('loot')
 const autoclick = document.getElementById('click')
 const strength = document.getElementById('strength')
 
-document.querySelector('a').addEventListener('click', e => { e.preventDefault() }) // prevent click
+document.querySelector('a').addEventListener('click', e => {
+  e.preventDefault()
+}) // prevent click
 
 function update () {
   document.querySelector('a').href = `javascript:
@@ -15,10 +17,13 @@ function update () {
   ${dps.checked ? 'setInterval(dogeminer.bonus.addSpecialBonus, int)' : ''};
   ${autoclick.checked ? 'setInterval(dogeminer.rock.mineRock, int)' : ''};
   ${loot.checked ? 'setInterval(dogeminer.loot.devLoot, int)' : ''};
-  ${strength.checked ? 'setInterval(()=>{dogeminer.game.extrastrength++}, int)' : ''};
+  ${
+    strength.checked
+      ? 'setInterval(()=>{dogeminer.game.extrastrength++}, int)'
+      : ''
+  };
   void 0;`
 }
-
 
 document.querySelectorAll('input').forEach(e => {
   e.addEventListener('input', update)
