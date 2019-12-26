@@ -25,18 +25,13 @@ a {
 
 input {
   text-align: center;
-  border-radius: 10em;
-  border: 0.2em white solid;
-  background: black;
-  color: white;
+}
+
+input[type="checkbox"] {
   transition: box-shadow 1s;
 }
 
-input[type="number"]:focus {
-  box-shadow: 0 0 1em 1em red;
-}
-
-input:checked {
+input[type="checkbox"]:checked {
   box-shadow: 0 0 0.3em 0.3em blue;
 }
 
@@ -50,5 +45,5 @@ input:checked {
 }
 
 label {
-  letter-spacing: 0.1em;
+  font-style: italic;
 }
