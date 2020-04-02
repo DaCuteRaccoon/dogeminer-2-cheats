@@ -1,5 +1,7 @@
 /* global dogeminer */
-
+if (location.host !== 'dogeminer2.com') {
+  alert('This hack only works on dogeminer2.com')
+}
 /**
  * @typedef Bonus
  * @type {object}
