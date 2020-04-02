@@ -116,6 +116,7 @@ if (location.host !== 'dogeminer2.com') {
 
 /** @type {Game} */
 const doge = dogeminer
+
 const { rock, bonus, loot, game, tweens} = doge
 
 /** @type {Object.<string, ()=>number>} */
