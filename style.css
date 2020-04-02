@@ -1,49 +1,10 @@
-small {
-  color: yellow;
-  animation: splash 3s ease-in-out infinite;
-}
-
-small::before {
-  content: '('
-}
-
-small::after {
-  content: ')'
-}
-
-h1, fieldset {
-  display: inline;
-}
-
 a {
   cursor: grab;
-  color: wheat;
+  text-decoration: none;
+  border-bottom: 0.1em solid skyblue;
   font-size: 3em;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
   user-select: none;
-  text-decoration-color: white;
-}
-
-input {
-  text-align: center;
-}
-
-input[type="checkbox"] {
-  transition: box-shadow 1s;
-}
-
-input[type="checkbox"]:checked {
-  box-shadow: 0 0 0.3em 0.3em blue;
-}
-
-@keyframes splash {
-  from, to {
-    font-size: 0.5em;
-  }
-  50% {
-    font-size: 0.7em;
-  }
-}
-
-label {
-  font-style: italic;
 }
