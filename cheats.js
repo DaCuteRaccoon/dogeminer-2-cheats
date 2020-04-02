@@ -118,6 +118,14 @@ if (location.host !== 'dogeminer2.com') {
 const doge = dogeminer
 const { rock, bonus, loot, game, tweens} = doge
 
+/**
+ * @typedef Hack
+ * @type {Object}
+ * @property {string} name - The label of the checkbox
+ * @property {()=>number} hack - A setInterval function (for now, might add more types)
+**/
+
+/** @type {Hack[]} */
 let hacks = [{
   name: 'Increase your DPS',
   hack: ()=>setInterval(bonus.addSpecialBonus)
@@ -139,7 +147,6 @@ let hacks = [{
   name: 'Fuck up the animations',
   hack: ()=>setInterval(tweens.stopEverything)
 }]
-
 function random (length) {
   return Array(length)
     .fill()
@@ -167,7 +174,7 @@ const summary = document.createElement('summary')
 summary.innerHTML = 'Dogeminer 2 Hack by <a href="https://jack5079.github.io">jack5079</a>'
 hackmenu.appendChild(summary)
 
-hacks = hacks.map(hack => {
+hacks.map(hack => {
   const container = document.createElement('article')
   const checkbox = document.createElement('input')
   checkbox.id = random(26)
@@ -188,6 +195,5 @@ hacks = hacks.map(hack => {
   label.innerText = hack.name
   container.appendChild(label)
   return container
-})
-hacks.forEach(hackmenu.appendChild.bind(hackmenu))
+}).forEach(hackmenu.appendChild.bind(hackmenu))
 document.body.appendChild(hackmenu)
