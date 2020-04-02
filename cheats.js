@@ -108,12 +108,13 @@
  * @property {Rock} rock
  * @property {GameObj} game
  * @property {Tweens} tweens
+ * @property {()=>void} testa
+ * @property {(e: string)=>number} hex2int
  */
 
 /** @type {Game} */
 const doge = dogeminer
 const { rock, bonus, loot, game, tweens} = doge
-
 
 let hacks = [{
   name: 'Increase your DPS',
@@ -153,15 +154,15 @@ hackmenu.style = `
   position: fixed;
   right: 0;
   bottom: 0;
-  background: white;
-  color: black;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
   border-radius: 1em;
   padding: 1em;
   max-width: 100vw;
   z-index: 5;
 `
 const summary = document.createElement('summary')
-summary.innerText = 'Dogeminer 2 Hack'
+summary.innerHTML = 'Dogeminer 2 Hack by <a href="https://jack5079.github.io">jack5079</a>'
 hackmenu.appendChild(summary)
 
 hacks = hacks.map(hack => {
