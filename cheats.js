@@ -1,18 +1,51 @@
 /* global dogeminer */
+
+/**
+ * @typedef Bonus
+ * @type {object}
+ * @property {boolean} bonuscoin_active
+ * @property {()=>void} createBonuscoin - Make a new bonus coin
+ * @property {()=>void} createCateMiner - Make a cate thief
+ * @property {()=>void} addSpecialBonus
+ */
+
+/**
+ * @typedef Loot
+ * @type {object}
+ * @property {()=>boolean} bagIsOpen
+ * @property {()=>void} devLoot
+ */
+/**
+ * @typedef Game
+ * @type {object}
+ * @property {Loot} loot
+ * @property {Bonus} bonus
+ * @property {Rock} rock
+ * @property {GameObj} game
+ */
+
+/** @type {Game} */
+const doge = dogeminer
+const { rock, bonus, loot, game } = doge
+
+
 let hacks = [{
   name: 'Increase your DPS',
-  hack: ()=>setInterval(dogeminer.bonus.addSpecialBonus)
+  hack: ()=>setInterval(bonus.addSpecialBonus)
 }, {
   name: 'Autoclicker',
-  hack: ()=>setInterval(dogeminer.rock.mineRock)
+  hack: ()=>setInterval(rock.mineRock)
 }, {
   name: 'More loot',
-  hack: ()=>setInterval(dogeminer.loot.devLoot)
+  hack: ()=>setInterval(loot.devLoot)
 }, {
   name: 'Increase your click strength',
   hack: ()=>setInterval(()=>{
-    dogeminer.game.extrastrength++
+    game.extrastrength++
   })
+}, {
+  name: 'Cover your screen with bonus coins',
+  hack: ()=>setInterval(bonus.createBonuscoin)
 }]
 function random (length) {
   return Array(length)
