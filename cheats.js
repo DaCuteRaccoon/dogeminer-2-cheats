@@ -118,35 +118,18 @@ if (location.host !== 'dogeminer2.com') {
 const doge = dogeminer
 const { rock, bonus, loot, game, tweens} = doge
 
-/**
- * @typedef Hack
- * @type {Object}
- * @property {string} name - The label of the checkbox
- * @property {()=>number} hack - A setInterval function (for now, might add more types)
-**/
-
-/** @type {Hack[]} */
-let hacks = [{
-  name: 'Increase your DPS',
-  hack: ()=>setInterval(bonus.addSpecialBonus)
-}, {
-  name: 'Autoclicker',
-  hack: ()=>setInterval(rock.mineRock)
-}, {
-  name: 'More loot',
-  hack: ()=>setInterval(loot.devLoot)
-}, {
-  name: 'Increase your click strength',
-  hack: ()=>setInterval(()=>{
+/** @type {Object.<string, ()=>number>} */
+let hacks = {
+  'Increase your DPS': ()=>setInterval(bonus.addSpecialBonus),
+  Autoclicker: ()=>setInterval(rock.mineRock),
+  'More loot': ()=>setInterval(loot.devLoot),
+  'Increase your click strength': ()=>setInterval(()=>{
     game.extrastrength++
-  })
-}, {
-  name: 'Cover your screen with bonus coins',
-  hack: ()=>setInterval(bonus.createBonuscoin)
-}, {
-  name: 'Fuck up the animations',
-  hack: ()=>setInterval(tweens.stopEverything)
-}]
+  }),
+  'Cover your screen with bonus coins': ()=>setInterval(bonus.createBonuscoin),
+  'Fuck up the animations': ()=>setInterval(tweens.stopEverything)
+}
+
 function random (length) {
   return Array(length)
     .fill()
@@ -174,7 +157,7 @@ const summary = document.createElement('summary')
 summary.innerHTML = 'Dogeminer 2 Hack by <a href="https://jack5079.github.io">jack5079</a>'
 hackmenu.appendChild(summary)
 
-hacks.map(hack => {
+Object.entries(hacks).map(([name, hack]) => {
   const container = document.createElement('article')
   const checkbox = document.createElement('input')
   checkbox.id = random(26)
@@ -186,13 +169,13 @@ hacks.map(hack => {
       clearInterval(id)
     } else {
       // alert('on')
-      id = hack.hack()
+      id = hack()
     }
   })
   container.appendChild(checkbox)
   const label = document.createElement('label')
   label.htmlFor = checkbox.id
-  label.innerText = hack.name
+  label.innerText = name
   container.appendChild(label)
   return container
 }).forEach(hackmenu.appendChild.bind(hackmenu))
