@@ -10,6 +10,91 @@
  */
 
 /**
+ * @typedef Tweens
+ * @type {object}
+ * @property {function} autoLootFly
+ * @property {function} safeDestroy
+ * @property {function} animateButton
+ * @property {function} animateRocket
+ * @property {function} beginLootDespawning
+ * @property {function} bounceIn
+ * @property {function} bounceInShop
+ * @property {function} changePickaxe
+ * @property {function} coinsClick
+ * @property {function} containerEnter
+ * @property {function} containerExit
+ * @property {function} driveKitler
+ * @property {function} rotateFX
+ * @property {function} enterFromTeleport
+ * @property {function} fadeIn
+ * @property {function} fadeInDelay
+ * @property {function} fadeInSafe
+ * @property {function} fadeOutSafe
+ * @property {function} fadeOut
+ * @property {function} fadeOut2
+ * @property {function} fadeOutDelay
+ * @property {function} fadeOutDown
+ * @property {function} fadeOutUp
+ * @property {function} fadeOutRight
+ * @property {function} fadeOutLeft
+ * @property {function} fadeInLeft
+ * @property {function} fadeInRight
+ * @property {function} fadeTo
+ * @property {function} fallIn
+ * @property {function} flash
+ * @property {function} flashInfinite
+ * @property {function} float
+ * @property {function} floatPrecise
+ * @property {function} floatSafe
+ * @property {function} flyArrowTo
+ * @property {function} flyByItem
+ * @property {function} glowSafe
+ * @property {function} grabItem
+ * @property {function} growIn
+ * @property {function} growInBounce
+ * @property {function} growInBounceFriendly
+ * @property {function} growShrinkFade
+ * @property {function} hideLevel
+ * @property {function} justFadeOutAndUp
+ * @property {function} moveTo
+ * @property {function} moveX
+ * @property {function} moveY
+ * @property {function} pick
+ * @property {function} pivot
+ * @property {function} popFadeContinual
+ * @property {function} rgbwow
+ * @property {function} scale
+ * @property {function} scaleFadeInSafe
+ * @property {function} scaleFadeOutSafe
+ * @property {function} scaleX
+ * @property {function} scaleInSafe
+ * @property {function} shockwave
+ * @property {function} shrinkOut
+ * @property {function} shrinkOutX
+ * @property {function} shrinkOutY
+ * @property {function} shootProjectile
+ * @property {function} slashMove
+ * @property {function} slideInRight
+ * @property {function} slideInRightGeneric
+ * @property {function} slideNews
+ * @property {function} slideOutLeft
+ * @property {function} slideOutLeftAndDestroy
+ * @property {function} slightFadeSafe
+ * @property {function} spawnLoot
+ * @property {function} specialPick
+ * @property {function} specialUnpick
+ * @property {function} spinX
+ * @property {()=>void} stopEverything
+ * @property {function} switchPage
+ * @property {function} tada
+ * @property {function} tadaDelay
+ * @property {function} triggered
+ * @property {function} unpick
+ * @property {function} mysteryBoxReady
+ * @property {function} shakeX
+ * @property {function} jumpUp
+ */
+/**
  * @typedef Loot
  * @type {object}
  * @property {()=>boolean} bagIsOpen
@@ -22,11 +107,12 @@
  * @property {Bonus} bonus
  * @property {Rock} rock
  * @property {GameObj} game
+ * @property {Tweens} tweens
  */
 
 /** @type {Game} */
 const doge = dogeminer
-const { rock, bonus, loot, game } = doge
+const { rock, bonus, loot, game, tweens} = doge
 
 
 let hacks = [{
@@ -46,7 +132,11 @@ let hacks = [{
 }, {
   name: 'Cover your screen with bonus coins',
   hack: ()=>setInterval(bonus.createBonuscoin)
+}, {
+  name: 'Fuck up the animations',
+  hack: ()=>setInterval(tweens.stopEverything)
 }]
+
 function random (length) {
   return Array(length)
     .fill()
@@ -62,7 +152,7 @@ const hackmenu = document.createElement('details')
 hackmenu.style = `
   position: fixed;
   right: 0;
-  top: 0;
+  bottom: 0;
   background: white;
   color: black;
   border-radius: 1em;
