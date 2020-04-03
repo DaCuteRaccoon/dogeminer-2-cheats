@@ -1,7 +1,4 @@
 /* global dogeminer, Reflect, Proxy */
-if (location.host !== 'dogeminer2.com') {
-  alert('This hack only works on dogeminer2.com')
-}
 /**
  * make a random string (made for ids)
  *

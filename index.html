@@ -37,8 +37,41 @@
       Click it whenever you want to cheat! (Make sure you're in the Dogeminer 2
       tab before activating)
     </p>
+    <h3>List of cheats</h3>
+    <article>
+      <details id="intervalist">
+        <summary>Interval</summary>
+      </details>
+      <details id="togglist">
+        <summary>Toggle</summary>
+      </details>
+
+    </article>
     <hr />
     version 3.0.1
+    <script>
+      const dogeminer = Object.setPrototypeOf(new Proxy(() => { }, {
+        get(obj, prop) {
+          return dogeminer
+        }
+      }), Function.prototype)
+    </script>
+    <script src="cheats.js"></script>
+    <script>
+      const intervalist = document.getElementById('intervalist')
+      const togglist = document.getElementById('togglist')
+      hackmenu.remove()
+      Object.keys(hacks.interval).map(name => {
+        const txt = document.createElement('li')
+        txt.innerText = name
+        return txt
+      }).forEach(intervalist.appendChild.bind(intervalist))
+      Object.keys(hacks.toggle).map(name => {
+        const txt = document.createElement('li')
+        txt.innerText = name
+        return txt
+      }).forEach(togglist.appendChild.bind(togglist))
+    </script>
   </body>
 
 </html>
