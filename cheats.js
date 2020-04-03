@@ -101,6 +101,9 @@ if (location.host !== 'dogeminer2.com') {
  * @type {object}
  * @property {()=>boolean} bagIsOpen
  * @property {()=>void} devLoot
+ * @property {(e)=>void} dropMap
+ * @property {()=>void} dropDiamond
+ * @property {()=>void} dropBag
  */
 /**
  * @typedef Game
@@ -128,7 +131,10 @@ let hacks = {
     game.extrastrength++
   }),
   'Cover your screen with bonus coins': ()=>setInterval(bonus.createBonuscoin),
-  'Fuck up the animations': ()=>setInterval(tweens.stopEverything)
+  'Fuck up the animations': ()=>setInterval(tweens.stopEverything),
+  'Map spam': ()=>setInterval(loot.dropMap),
+  'Diamond spam': ()=>setInterval(loot.dropDiamond),
+  'Bag spam': ()=>setInterval(loot.dropBag)
 }
 
 function random (length) {
