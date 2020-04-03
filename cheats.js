@@ -25,7 +25,7 @@ if (location.host !== 'dogeminer2.com') {
  * @property {function} coinsClick
  * @property {function} containerEnter
  * @property {function} containerExit
- * @property {function} driveKitler
+ * @property {function} driveKitler - Spolier alert!
  * @property {function} rotateFX
  * @property {function} enterFromTeleport
  * @property {function} fadeIn
@@ -107,6 +107,13 @@ if (location.host !== 'dogeminer2.com') {
  * @property {()=>boolean} isThereABag
  */
 /**
+ * @typedef Helper
+ * @type {object}
+ * @property {()=>void} unpauseCoins
+ * @property {()=>void} pauseCoins
+ * @property {(e: number)=>string} romanize - Convert a number to roman
+ */
+/**
  * @typedef Game
  * @type {object}
  * @property {Loot} loot
@@ -114,6 +121,7 @@ if (location.host !== 'dogeminer2.com') {
  * @property {Rock} rock
  * @property {GameObj} game
  * @property {Tweens} tweens
+ * @property {Helper} helperfunctions
  * @property {()=>void} testa
  * @property {(e: string)=>number} hex2int
  */
@@ -121,21 +129,70 @@ if (location.host !== 'dogeminer2.com') {
 /** @type {Game} */
 const doge = dogeminer
 
-const { rock, bonus, loot, game, tweens} = doge
+const { rock, bonus, loot, game, tweens, helperfunctions } = doge
 
-/** @type {Object.<string, ()=>number>} */
+/**
+ * @typedef Hack
+ * @type {object}
+ * @property {()=>boolean | number} func
+ * @property {"interval" | "toggle"} type
+ */
+
+/** @type {Object.<string, Hack>} */
 const hacks = {
-  'Increase your DPS': ()=>setInterval(bonus.addSpecialBonus),
-  Autoclicker: ()=>setInterval(rock.mineRock),
-  'More loot': ()=>setInterval(loot.devLoot),
-  'Increase your click strength': ()=>setInterval(()=>{
-    game.extrastrength++
-  }),
-  'Stop all animations': ()=>setInterval(tweens.stopEverything),
-  'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
-  'Map spam': ()=>setInterval(loot.dropMap),
-  'Diamond spam': ()=>setInterval(loot.dropDiamond),
-  'Bag spam': ()=>setInterval(loot.dropBag)
+  'Increase your DPS': {
+    func: ()=>setInterval(bonus.addSpecialBonus),
+    type: 'interval'
+  },
+  Autoclicker: {
+    func: ()=>setInterval(rock.mineRock),
+    type: 'interval'
+  },
+  'More loot': {
+    func: ()=>setInterval(loot.devLoot),
+    type: 'interval'
+  },
+  'Increase your click strength': {
+    type: 'interval',
+    func: ()=>setInterval(()=>{
+      game.extrastrength++
+    })
+  },
+  'Stop all animations': {
+    type: 'interval',
+    func: ()=>setInterval(tweens.stopEverything)
+  },
+  'Bonuscoin spam': {
+    func: ()=>setInterval(bonus.createBonuscoin),
+    type: 'interval'
+  },
+  'Map spam': {
+    func: ()=>setInterval(loot.dropMap),
+    type: 'interval'
+  },
+  'Diamond spam': {
+    func: ()=>setInterval(loot.dropDiamond),
+    type: 'interval'
+  },
+  'Bag spam': {
+    func: ()=>setInterval(loot.dropBag),
+    type: 'interval'
+  },
+  'Pause coins': {
+    func: (()=>{
+      let paused = false
+      return ()=>{
+        if (paused) {
+          helperfunctions.unpauseCoins()
+        } else {
+          helperfunctions.pauseCoins()
+        }
+        paused = !paused
+        return paused
+      }
+    })(),
+    type: 'toggle'
+  }
 }
 
 /**
@@ -178,12 +235,16 @@ Object.entries(hacks).map(([name, hack]) => {
   checkbox.type = 'checkbox'
   let id = 0
   checkbox.addEventListener('input', ()=>{
-    if (id && !checkbox.checked) {
+    if (hack.type === 'interval') {
+      if (id && !checkbox.checked) {
       // alert('off')
-      clearInterval(id)
-    } else {
+        clearInterval(id)
+      } else {
       // alert('on')
-      id = hack()
+        id = hack.func()
+      }
+    } else {
+      hack.func()
     }
   })
   container.appendChild(checkbox)
