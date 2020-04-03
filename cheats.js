@@ -171,6 +171,7 @@ const hacks = {
       game.extrastrength++
     }),
     'Stop all animations': ()=>setInterval(tweens.stopEverything),
+    '🦀 THE ROCK IS GONE 🦀': ()=>setInterval(()=>rock.doRockDamage(100)),
     'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
     'Map spam': ()=>setInterval(loot.dropMap),
     'Diamond spam': ()=>setInterval(loot.dropDiamond),
