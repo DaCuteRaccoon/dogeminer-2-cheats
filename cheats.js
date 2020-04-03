@@ -104,6 +104,7 @@ if (location.host !== 'dogeminer2.com') {
  * @property {(e)=>void} dropMap
  * @property {()=>void} dropDiamond
  * @property {()=>void} dropBag
+ * @property {()=>boolean} isThereABag
  */
 /**
  * @typedef Game
@@ -130,7 +131,7 @@ let hacks = {
   'Increase your click strength': ()=>setInterval(()=>{
     game.extrastrength++
   }),
-  'F*** up the animations': ()=>setInterval(tweens.stopEverything),
+  'Stop all animations': ()=>setInterval(tweens.stopEverything),
   'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
   'Map spam': ()=>setInterval(loot.dropMap),
   'Diamond spam': ()=>setInterval(loot.dropDiamond),
