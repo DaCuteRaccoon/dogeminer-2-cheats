@@ -161,7 +161,7 @@ hackmenu.style = `
   z-index: 5;
 `
 const summary = document.createElement('summary')
-summary.innerHTML = 'Dogeminer 2 Hack by <a href="https://jack5079.github.io">jack5079</a>'
+summary.innerHTML = 'Dogeminer 2 Hack by <a href="https://jack5079.github.io">Jack</a>'
 hackmenu.appendChild(summary)
 
 Object.entries(hacks).map(([name, hack]) => {
