@@ -200,7 +200,6 @@ hackmenu.style = `
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   background-size: cover;
-  backdrop-filter: brightness(-10%);
   color: white;
   border-radius: 1em;
   padding: 1em;
