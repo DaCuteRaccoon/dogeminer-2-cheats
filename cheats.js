@@ -130,8 +130,8 @@ let hacks = {
   'Increase your click strength': ()=>setInterval(()=>{
     game.extrastrength++
   }),
-  'Cover your screen with bonus coins': ()=>setInterval(bonus.createBonuscoin),
   'Fuck up the animations': ()=>setInterval(tweens.stopEverything),
+  'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
   'Map spam': ()=>setInterval(loot.dropMap),
   'Diamond spam': ()=>setInterval(loot.dropDiamond),
   'Bag spam': ()=>setInterval(loot.dropBag)
