@@ -129,7 +129,9 @@ if (location.host !== 'dogeminer2.com') {
 /** @type {Game} */
 const doge = dogeminer
 
-const { rock, bonus, loot, game, tweens, helperfunctions } = doge
+const { rock, bonus, loot, game, tweens, helperfunctions, news } = doge
+
+news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
 
 /**
  * @typedef Hack
@@ -225,7 +227,7 @@ hackmenu.style = `
   z-index: 5;
 `
 const summary = document.createElement('summary')
-summary.innerHTML = 'Dogeminer 2 Hack by <a href="https://jack5079.github.io">Jack</a>'
+summary.innerHTML = 'Dogeminer 2 Cheats by <a href="https://jack5079.github.io">Jack</a>'
 hackmenu.appendChild(summary)
 
 Object.entries(hacks).map(([name, hack]) => {
