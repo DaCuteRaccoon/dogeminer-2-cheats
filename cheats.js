@@ -163,7 +163,7 @@ if (!document.querySelector('details')) {
 
 /** @type {Object.<string, Hack>} */
 const hacks = {
-  'Increase your DPS': {
+  'Increase your dogecoin per second': {
     func: ()=>setInterval(bonus.addSpecialBonus),
     type: 'interval'
   },
@@ -175,7 +175,7 @@ const hacks = {
     func: ()=>setInterval(loot.devLoot),
     type: 'interval'
   },
-  'Increase your click strength': {
+  'Increase your dogecoin per click': {
     type: 'interval',
     func: ()=>setInterval(()=>{
       game.extrastrength++

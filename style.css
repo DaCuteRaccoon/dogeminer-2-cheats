@@ -11,7 +11,6 @@ a {
   cursor: grab;
   text-decoration: none;
   border-bottom: 0.1em solid skyblue;
-  font-size: 3em;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -33,4 +32,12 @@ a:active::after {
   top: 0;
   left: 0;
   content: '↑ Drag to your bookmarks bar ↑';
+}
+
+noscript {
+  background: darkslategrey;
+  color: white;
+  border-radius: 50em;
+  padding: 1em;
+  width: 50%;
 }
