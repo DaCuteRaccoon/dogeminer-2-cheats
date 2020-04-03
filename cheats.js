@@ -1,4 +1,4 @@
-/* global dogeminer */
+/* global dogeminer, Reflect, Proxy */
 if (location.host !== 'dogeminer2.com') {
   alert('This hack only works on dogeminer2.com')
 }
@@ -261,4 +261,31 @@ Object.entries(hacks).map(([name, hack]) => {
   container.appendChild(label)
   return container
 }).forEach(hackmenu.appendChild.bind(hackmenu))
+
+const container = document.createElement('article')
+const coin = document.createElement('input')
+doge.player = new Proxy(dogeminer.player, {
+  set (obj, prop, value) {
+    if (prop === 'coins') {
+      coin.value = value
+      return Reflect.set(...arguments)
+    } else {
+      return Reflect.set(...arguments)
+    }
+  }
+})
+coin.id = random(26)
+coin.type = 'number'
+coin.placeholder = 'Coin count...'
+coin.addEventListener('input', ()=>{
+  if (coin.value.length - 1) {
+    doge.player.coins = Number(coin.value)
+  }
+})
+const label = document.createElement('label')
+label.htmlFor = coin.id
+label.innerText = 'Dogecoin count'
+container.appendChild(label)
+container.appendChild(coin)
+hackmenu.appendChild(container)
 document.body.appendChild(hackmenu)
