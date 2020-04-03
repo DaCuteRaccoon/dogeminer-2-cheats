@@ -124,7 +124,7 @@ const doge = dogeminer
 const { rock, bonus, loot, game, tweens} = doge
 
 /** @type {Object.<string, ()=>number>} */
-let hacks = {
+const hacks = {
   'Increase your DPS': ()=>setInterval(bonus.addSpecialBonus),
   Autoclicker: ()=>setInterval(rock.mineRock),
   'More loot': ()=>setInterval(loot.devLoot),
