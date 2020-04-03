@@ -245,7 +245,8 @@ default:
   break
 }
 const summary = document.createElement('summary')
-summary.innerHTML = 'Dogeminer 2 Cheats by <a href="https://jack5079.github.io">Jack</a>'
+summary.innerHTML = `Dogeminer 2 Cheats by 
+<a style="color: skyblue;" href="https://jack5079.github.io">Jack</a>`
 hackmenu.appendChild(summary)
 
 Object.entries(hacks).map(([name, hack]) => {
