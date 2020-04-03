@@ -150,75 +150,77 @@ const { rock, bonus, loot, game, tweens, helperfunctions, news } = doge
 
 if (!document.querySelector('details')) {
   news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
+} else {
+  news.showNews('Dogeminer 2 Cheats is already open!', random(26))
+}
 
-
-  /**
+/**
  * @typedef Hack
  * @type {object}
  * @property {()=>boolean | number} func
  * @property {"interval" | "toggle"} type
  */
 
-  /** @type {Object.<string, Hack>} */
-  const hacks = {
-    'Increase your DPS': {
-      func: ()=>setInterval(bonus.addSpecialBonus),
-      type: 'interval'
-    },
-    Autoclicker: {
-      func: ()=>setInterval(rock.mineRock),
-      type: 'interval'
-    },
-    'More loot': {
-      func: ()=>setInterval(loot.devLoot),
-      type: 'interval'
-    },
-    'Increase your click strength': {
-      type: 'interval',
-      func: ()=>setInterval(()=>{
-        game.extrastrength++
-      })
-    },
-    'Stop all animations': {
-      type: 'interval',
-      func: ()=>setInterval(tweens.stopEverything)
-    },
-    'Bonuscoin spam': {
-      func: ()=>setInterval(bonus.createBonuscoin),
-      type: 'interval'
-    },
-    'Map spam': {
-      func: ()=>setInterval(loot.dropMap),
-      type: 'interval'
-    },
-    'Diamond spam': {
-      func: ()=>setInterval(loot.dropDiamond),
-      type: 'interval'
-    },
-    'Bag spam': {
-      func: ()=>setInterval(loot.dropBag),
-      type: 'interval'
-    },
-    'Pause coins': {
-      func: (()=>{
-        let paused = false
-        return ()=>{
-          if (paused) {
-            helperfunctions.unpauseCoins()
-          } else {
-            helperfunctions.pauseCoins()
-          }
-          paused = !paused
-          return paused
+/** @type {Object.<string, Hack>} */
+const hacks = {
+  'Increase your DPS': {
+    func: ()=>setInterval(bonus.addSpecialBonus),
+    type: 'interval'
+  },
+  Autoclicker: {
+    func: ()=>setInterval(rock.mineRock),
+    type: 'interval'
+  },
+  'More loot': {
+    func: ()=>setInterval(loot.devLoot),
+    type: 'interval'
+  },
+  'Increase your click strength': {
+    type: 'interval',
+    func: ()=>setInterval(()=>{
+      game.extrastrength++
+    })
+  },
+  'Stop all animations': {
+    type: 'interval',
+    func: ()=>setInterval(tweens.stopEverything)
+  },
+  'Bonuscoin spam': {
+    func: ()=>setInterval(bonus.createBonuscoin),
+    type: 'interval'
+  },
+  'Map spam': {
+    func: ()=>setInterval(loot.dropMap),
+    type: 'interval'
+  },
+  'Diamond spam': {
+    func: ()=>setInterval(loot.dropDiamond),
+    type: 'interval'
+  },
+  'Bag spam': {
+    func: ()=>setInterval(loot.dropBag),
+    type: 'interval'
+  },
+  'Pause coins': {
+    func: (()=>{
+      let paused = false
+      return ()=>{
+        if (paused) {
+          helperfunctions.unpauseCoins()
+        } else {
+          helperfunctions.pauseCoins()
         }
-      })(),
-      type: 'toggle'
-    }
+        paused = !paused
+        return paused
+      }
+    })(),
+    type: 'toggle'
   }
+}
 
 
-  const hackmenu = document.createElement('details')
-  hackmenu.style = `
+const hackmenu = document.createElement('details')
+hackmenu.style = `
   position: fixed;
   right: 0;
   bottom: 0;
@@ -229,35 +231,34 @@ if (!document.querySelector('details')) {
   max-width: 100vw;
   z-index: 5;
 `
-  const summary = document.createElement('summary')
-  summary.innerHTML = 'Dogeminer 2 Cheats by <a href="https://jack5079.github.io">Jack</a>'
-  hackmenu.appendChild(summary)
+const summary = document.createElement('summary')
+summary.innerHTML = 'Dogeminer 2 Cheats by <a href="https://jack5079.github.io">Jack</a>'
+hackmenu.appendChild(summary)
 
-  Object.entries(hacks).map(([name, hack]) => {
-    const container = document.createElement('article')
-    const checkbox = document.createElement('input')
-    checkbox.id = random(26)
-    checkbox.type = 'checkbox'
-    let id = 0
-    checkbox.addEventListener('input', ()=>{
-      if (hack.type === 'interval') {
-        if (id && !checkbox.checked) {
-          // alert('off')
-          clearInterval(id)
-        } else {
-          // alert('on')
-          id = hack.func()
-        }
+Object.entries(hacks).map(([name, hack]) => {
+  const container = document.createElement('article')
+  const checkbox = document.createElement('input')
+  checkbox.id = random(26)
+  checkbox.type = 'checkbox'
+  let id = 0
+  checkbox.addEventListener('input', ()=>{
+    if (hack.type === 'interval') {
+      if (id && !checkbox.checked) {
+        // alert('off')
+        clearInterval(id)
       } else {
-        hack.func()
+        // alert('on')
+        id = hack.func()
       }
-    })
-    container.appendChild(checkbox)
-    const label = document.createElement('label')
-    label.htmlFor = checkbox.id
-    label.innerText = name
-    container.appendChild(label)
-    return container
-  }).forEach(hackmenu.appendChild.bind(hackmenu))
-  document.body.appendChild(hackmenu)
-} news.showNews('Dogeminer 2 Cheats is already open!', random(26))
+    } else {
+      hack.func()
+    }
+  })
+  container.appendChild(checkbox)
+  const label = document.createElement('label')
+  label.htmlFor = checkbox.id
+  label.innerText = name
+  container.appendChild(label)
+  return container
+}).forEach(hackmenu.appendChild.bind(hackmenu))
+document.body.appendChild(hackmenu)
