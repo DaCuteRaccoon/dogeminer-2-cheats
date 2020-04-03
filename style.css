@@ -41,3 +41,7 @@ noscript {
   padding: 1em;
   width: 50%;
 }
+
+details>li {
+  margin-left: 1em;
+}
