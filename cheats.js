@@ -137,6 +137,12 @@ let hacks = {
   'Bag spam': ()=>setInterval(loot.dropBag)
 }
 
+/**
+ * make a random string (made for ids)
+ *
+ * @param {number} length
+ * @returns {string} A random string.
+ */
 function random (length) {
   return Array(length)
     .fill()
