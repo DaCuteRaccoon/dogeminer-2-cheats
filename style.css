@@ -47,7 +47,13 @@ details>li {
 }
 
 iframe {
+  min-width: 400px;
   background: white;
-  border-radius: 1em;
   color: black;
+}
+
+#center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
