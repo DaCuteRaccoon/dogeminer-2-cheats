@@ -7,7 +7,7 @@ body {
   font-family: 'Doge Sans', sans-serif;
 }
 
-a {
+h1 a {
   cursor: grab;
   text-decoration: none;
   border-bottom: 0.1em solid skyblue;
@@ -17,7 +17,7 @@ a {
   user-select: none;
 }
 
-a:active::after {
+h1 a:active::after {
   position: fixed;
   pointer-events: none;
   -moz-user-select: none;
