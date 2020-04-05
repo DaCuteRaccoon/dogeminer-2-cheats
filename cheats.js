@@ -148,9 +148,9 @@ const { rock, bonus, loot, game, tweens, helperfunctions, news } = doge
 news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
 
 // Remove the previous version
-document.querySelectorAll('details input[type="checkbox"]:checked').forEach(e=>e.click())
-document.querySelectorAll('details input[type="text"]').forEach(e=>e.blur())
-document.querySelector('details').remove()
+document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox=>checkbox.click()) // Disable every cheat
+document.querySelectorAll('details input[type="text"]').forEach(e=>e.blur()) // Unpause every edit cheat
+document.querySelector('details').remove() // Remove the hack menu
 
 const hackmenu = document.createElement('details')
 hackmenu.style = `
