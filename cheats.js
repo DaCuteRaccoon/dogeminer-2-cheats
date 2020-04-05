@@ -163,10 +163,7 @@ css.appendChild(document.createTextNode(`
     background: rgba(0, 0, 0, 0.7);
     background-size: cover;
     color: white;
-    border-radius: 1em;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
+    border-top-left-radius: 1em;
     padding: 1em;
     max-width: 100vw;
     z-index: 5;
