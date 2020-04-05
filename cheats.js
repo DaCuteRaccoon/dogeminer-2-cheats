@@ -145,11 +145,12 @@ const doge = dogeminer
 
 const { rock, bonus, loot, game, tweens, helperfunctions, news } = doge
 
-if (!document.querySelector('details')) {
-  news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
-} else {
-  news.showNews('Closing Dogeminer 2 Cheats...', random(26))
-}
+news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
+
+// Remove the previous version
+document.querySelectorAll('details input[type="checkbox"]:checked').forEach(e=>e.click())
+document.querySelectorAll('details input[type="text"]').forEach(e=>e.blur())
+document.querySelector('details').remove()
 
 const hackmenu = document.createElement('details')
 hackmenu.style = `
