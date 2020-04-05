@@ -232,7 +232,7 @@ const coin = document.createElement('input')
 doge.player = new Proxy(player, {
   set (obj, prop, value) {
     if (prop === 'coins') {
-      coin.value = value
+      coin.value = Math.round(value)
       return Reflect.set(...arguments)
     } else {
       return Reflect.set(...arguments)
