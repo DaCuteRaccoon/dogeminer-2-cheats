@@ -52,7 +52,7 @@
     <script src="cheats.js"></script>
     <script>
       const intervalist = document.getElementById('intervalist')
-      hackmenu.remove()
+      document.querySelector('details').remove()
       Object.keys(hacks).map(name => {
         const txt = document.createElement('li')
         txt.innerText = name
