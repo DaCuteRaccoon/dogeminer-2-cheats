@@ -143,7 +143,7 @@ function random (length) {
 /** @type {Game} */
 const doge = dogeminer
 
-const { rock, bonus, loot, game, tweens, helperfunctions, news } = doge
+const { rock, bonus, loot, game, tweens, helperfunctions: helper, news, player } = doge
 
 news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
 
@@ -224,7 +224,7 @@ Object.entries(hacks).map(([name, hack]) => {
 //#region
 const container = document.createElement('article')
 const coin = document.createElement('input')
-doge.player = new Proxy(dogeminer.player, {
+doge.player = new Proxy(player, {
   set (obj, prop, value) {
     if (prop === 'coins') {
       coin.value = value
@@ -239,11 +239,11 @@ coin.type = 'number'
 coin.placeholder = 'Coin count...'
 coin.addEventListener('input', ()=>{
   if (coin.value.length - 1) {
-    doge.player.coins = Number(coin.value)
+    player.coins = Number(coin.value)
   }
 })
-coin.addEventListener('focus', helperfunctions.pauseCoins)
-coin.addEventListener('blur', helperfunctions.unpauseCoins)
+coin.addEventListener('focus', helper.pauseCoins)
+coin.addEventListener('blur', helper.unpauseCoins)
 //#region
 const label = document.createElement('label')
 label.htmlFor = coin.id
