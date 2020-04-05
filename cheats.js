@@ -160,34 +160,18 @@ if (!document.querySelector('details')) {
   */
 /** @type {Hacks} */
 const hacks = {
-  interval: {
-    'Increase your dogecoin per second': ()=>setInterval(bonus.addSpecialBonus),
-    Autoclicker: ()=>setInterval(rock.mineRock),
-    'More loot': ()=>setInterval(loot.devLoot),
-    'Increase your dogecoin per click': ()=>setInterval(()=>{
-      game.extrastrength++
-    }),
-    'Stop all animations': ()=>setInterval(tweens.stopEverything),
-    '🦀 THE ROCK IS GONE 🦀': ()=>setInterval(()=>rock.doRockDamage(100)),
-    'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
-    'Map spam': ()=>setInterval(loot.dropMap),
-    'Diamond spam': ()=>setInterval(loot.dropDiamond),
-    'Bag spam': ()=>setInterval(loot.dropBag)
-  },
-  toggle: {
-    'Pause coins': (()=>{
-      let paused = false
-      return ()=>{
-        if (paused) {
-          helperfunctions.unpauseCoins()
-        } else {
-          helperfunctions.pauseCoins()
-        }
-        paused = !paused
-        return paused
-      }
-    })()
-  }
+  'Increase your dogecoin per second': ()=>setInterval(bonus.addSpecialBonus),
+  Autoclicker: ()=>setInterval(rock.mineRock),
+  'More loot': ()=>setInterval(loot.devLoot),
+  'Increase your dogecoin per click': ()=>setInterval(()=>{
+    game.extrastrength++
+  }),
+  'Stop all animations': ()=>setInterval(tweens.stopEverything),
+  '🦀 THE ROCK IS GONE 🦀': ()=>setInterval(()=>rock.doRockDamage(100)),
+  'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
+  'Map spam': ()=>setInterval(loot.dropMap),
+  'Diamond spam': ()=>setInterval(loot.dropDiamond),
+  'Bag spam': ()=>setInterval(loot.dropBag)
 }
 
 
@@ -220,7 +204,7 @@ summary.innerHTML = `Dogeminer 2 Cheats by
 <a style="color: skyblue;" href="https://jack5079.github.io">Jack</a>`
 hackmenu.appendChild(summary)
 
-Object.entries(hacks.interval).map(([name, hack]) => {
+Object.entries(hacks).map(([name, hack]) => {
   const container = document.createElement('article')
   const checkbox = document.createElement('input')
   checkbox.id = random(26)
@@ -232,22 +216,6 @@ Object.entries(hacks.interval).map(([name, hack]) => {
     } else {
       id = hack()
     }
-  })
-  container.appendChild(checkbox)
-  const label = document.createElement('label')
-  label.htmlFor = checkbox.id
-  label.innerText = name
-  container.appendChild(label)
-  return container
-}).forEach(hackmenu.appendChild.bind(hackmenu))
-
-Object.entries(hacks.toggle).map(([name, hack]) => {
-  const container = document.createElement('article')
-  const checkbox = document.createElement('input')
-  checkbox.id = random(26)
-  checkbox.type = 'checkbox'
-  checkbox.addEventListener('input', ()=>{
-    hack()
   })
   container.appendChild(checkbox)
   const label = document.createElement('label')
@@ -277,6 +245,9 @@ coin.addEventListener('input', ()=>{
     doge.player.coins = Number(coin.value)
   }
 })
+coin.addEventListener('focus', helperfunctions.pauseCoins)
+coin.addEventListener('blur', helperfunctions.unpauseCoins)
+
 const label = document.createElement('label')
 label.htmlFor = coin.id
 label.innerText = 'Dogecoin count'
