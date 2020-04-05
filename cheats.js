@@ -221,6 +221,7 @@ Object.entries(hacks).map(([name, hack]) => {
   return container
 }).forEach(hackmenu.appendChild.bind(hackmenu))
 
+//#region
 const container = document.createElement('article')
 const coin = document.createElement('input')
 doge.player = new Proxy(dogeminer.player, {
@@ -243,11 +244,14 @@ coin.addEventListener('input', ()=>{
 })
 coin.addEventListener('focus', helperfunctions.pauseCoins)
 coin.addEventListener('blur', helperfunctions.unpauseCoins)
-
+//#region
 const label = document.createElement('label')
 label.htmlFor = coin.id
 label.innerText = 'Dogecoin count'
 container.appendChild(label)
 container.appendChild(coin)
 hackmenu.appendChild(container)
+//#endregion
+//#endregion
+
 document.body.appendChild(hackmenu)
