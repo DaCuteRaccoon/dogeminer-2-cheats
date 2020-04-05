@@ -154,24 +154,41 @@ if (document.querySelector('details')) {
   document.querySelector('details').remove()
 } // Remove the hack menu
 
+const css = document.createElement('style')
+css.appendChild(document.createTextNode(`
+  details {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    color: white;
+    border-radius: 1em;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 1em;
+    max-width: 100vw;
+    z-index: 5;
+  }
+
+  summary a {
+    color: skyblue
+  }
+  [type="checkbox"] {
+    margin-right: 1em;
+  }
+  details article input[type="number"] {
+    width: 100%;
+  }
+`))
+document.head.appendChild(css)
 const hackmenu = document.createElement('details')
-hackmenu.style = `
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  background-size: cover;
-  color: white;
-  border-radius: 1em;
-  padding: 1em;
-  max-width: 100vw;
-  z-index: 5;
-`
 
 
 const summary = document.createElement('summary')
 summary.innerHTML = `Dogeminer 2 Cheats by 
-<a style="color: skyblue;" href="https://jack5079.github.io">Jack</a>`
+<a href="https://jack5079.github.io">Jack</a>`
 hackmenu.appendChild(summary)
 
 
