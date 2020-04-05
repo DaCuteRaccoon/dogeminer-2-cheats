@@ -188,7 +188,7 @@ hackmenu.appendChild(summary)
 const hacks = {
   'Increase your dogecoin per second': ()=>setInterval(bonus.addSpecialBonus),
   Autoclicker: ()=>setInterval(rock.mineRock),
-  'More loot': ()=>setInterval(loot.devLoot),
+  'Dev loot': ()=>setInterval(loot.devLoot),
   'Increase your dogecoin per click': ()=>setInterval(()=>{
     game.extrastrength++
   }),
