@@ -168,16 +168,7 @@ hackmenu.style = `
   z-index: 5;
 `
 
-switch (game.checkHoliday()) {
-case 'xmas':
-  hackmenu.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/40541/christmas-snow-snowman-decoration-40541.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"
-  break
-case 'easter':
-  hackmenu.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/2072163/pexels-photo-2072163.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')"
-  break
-default:
-  break
-}
+
 const summary = document.createElement('summary')
 summary.innerHTML = `Dogeminer 2 Cheats by 
 <a style="color: skyblue;" href="https://jack5079.github.io">Jack</a>`
