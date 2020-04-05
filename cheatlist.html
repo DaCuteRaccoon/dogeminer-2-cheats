@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      if (top === window) location = './'
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Dogeminer 2 Cheats</title>
+  </head>
+
+  <body>
+    <h3>List of cheats</h3>
+    <script>
+      const dogeminer = Object.setPrototypeOf(new Proxy(() => { }, {
+        get(obj, prop) {
+          return dogeminer
+        }
+      }), Function.prototype)
+    </script>
+    <script src="cheats.js"></script>
+    <script>
+      const intervalist = document.getElementById('intervalist')
+      document.querySelector('details').remove()
+      Object.keys(hacks).map(name => {
+        const txt = document.createElement('li')
+        txt.innerText = name
+        return txt
+      }).forEach(document.body.appendChild.bind(document.body))
+    </script>
+  </body>
+
+</html>

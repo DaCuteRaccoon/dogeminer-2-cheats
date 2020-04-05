@@ -26,39 +26,30 @@
 
     <p>Drag this link to your bookmarks bar:</p>
     <script>
-      document.write(`<h1><a href="javascript:fetch('${
+      const heading = document.createElement('h1')
+      const link = document.createElement('a')
+      link.href = `javascript:fetch('${
         location.href
           .replace('index', '')
           .replace('.html', '')
           .replace('.htm', '')
-        }cheats.js').then(res=>res.text()).then(eval); void 0;">Dogeminer 2 Cheats</a></h1>`)
+        }cheats.js').then(res=>res.text()).then(eval); void 0;`
+      link.innerText = 'Dogeminer 2 Cheats'
+      heading.appendChild(link)
+      link.addEventListener('dragend', event => {
+        if (event.y < 0) {
+          location = './howtouse.html'
+        }
+      })
+      document.currentScript.replaceWith(heading)
     </script>
     <p>
       Click it whenever you want to cheat! (Make sure you're in the Dogeminer 2
       tab before activating)
     </p>
-    <article id="intervalist">
-      <h3>List of cheats</h3>
-    </article>
+    <iframe src="cheatlist.html" width="100%" height="300px" title="List of cheats" frameborder="0"></iframe>
     <hr />
     version 4.0.2
-    <script>
-      const dogeminer = Object.setPrototypeOf(new Proxy(() => { }, {
-        get(obj, prop) {
-          return dogeminer
-        }
-      }), Function.prototype)
-    </script>
-    <script src="cheats.js"></script>
-    <script>
-      const intervalist = document.getElementById('intervalist')
-      document.querySelector('details').remove()
-      Object.keys(hacks).map(name => {
-        const txt = document.createElement('li')
-        txt.innerText = name
-        return txt
-      }).forEach(intervalist.appendChild.bind(intervalist))
-    </script>
   </body>
 
 </html>

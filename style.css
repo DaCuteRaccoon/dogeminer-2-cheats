@@ -45,3 +45,9 @@ noscript {
 details>li {
   margin-left: 1em;
 }
+
+iframe {
+  background: white;
+  border-radius: 1em;
+  color: black;
+}
