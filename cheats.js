@@ -148,32 +148,8 @@ const { rock, bonus, loot, game, tweens, helperfunctions, news } = doge
 if (!document.querySelector('details')) {
   news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
 } else {
-  news.showNews('Dogeminer 2 Cheats is already open!', random(26))
+  news.showNews('Closing Dogeminer 2 Cheats...', random(26))
 }
-
-
-/**
-  * @typedef Hacks
-  * @type {object}
-  * @property {Object.<string, ()=>number>} interval
-  * @property {Object.<string, ()=>boolean>} toggle
-  */
-/** @type {Hacks} */
-const hacks = {
-  'Increase your dogecoin per second': ()=>setInterval(bonus.addSpecialBonus),
-  Autoclicker: ()=>setInterval(rock.mineRock),
-  'More loot': ()=>setInterval(loot.devLoot),
-  'Increase your dogecoin per click': ()=>setInterval(()=>{
-    game.extrastrength++
-  }),
-  'Stop all animations': ()=>setInterval(tweens.stopEverything),
-  '🦀 THE ROCK IS GONE 🦀': ()=>setInterval(()=>rock.doRockDamage(100)),
-  'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
-  'Map spam': ()=>setInterval(loot.dropMap),
-  'Diamond spam': ()=>setInterval(loot.dropDiamond),
-  'Bag spam': ()=>setInterval(loot.dropBag)
-}
-
 
 const hackmenu = document.createElement('details')
 hackmenu.style = `
@@ -203,6 +179,23 @@ const summary = document.createElement('summary')
 summary.innerHTML = `Dogeminer 2 Cheats by 
 <a style="color: skyblue;" href="https://jack5079.github.io">Jack</a>`
 hackmenu.appendChild(summary)
+
+
+/** @type {Object.<string, ()=>number>} */
+const hacks = {
+  'Increase your dogecoin per second': ()=>setInterval(bonus.addSpecialBonus),
+  Autoclicker: ()=>setInterval(rock.mineRock),
+  'More loot': ()=>setInterval(loot.devLoot),
+  'Increase your dogecoin per click': ()=>setInterval(()=>{
+    game.extrastrength++
+  }),
+  'Stop all animations': ()=>setInterval(tweens.stopEverything),
+  '🦀 THE ROCK IS GONE 🦀': ()=>setInterval(()=>rock.doRockDamage(100)),
+  'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
+  'Map spam': ()=>setInterval(loot.dropMap),
+  'Diamond spam': ()=>setInterval(loot.dropDiamond),
+  'Bag spam': ()=>setInterval(loot.dropBag)
+}
 
 Object.entries(hacks).map(([name, hack]) => {
   const container = document.createElement('article')
