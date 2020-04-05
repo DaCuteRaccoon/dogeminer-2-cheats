@@ -149,7 +149,7 @@ news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
 
 // Remove the previous version
 document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox=>checkbox.click()) // Disable every cheat
-document.querySelectorAll('details input[type="text"]').forEach(e=>e.blur()) // Unpause every edit cheat
+document.querySelectorAll('details input[type="number"]').forEach(e=>e.blur()) // Unpause every edit cheat
 document.querySelector('details').remove() // Remove the hack menu
 
 const hackmenu = document.createElement('details')
