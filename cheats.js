@@ -153,8 +153,8 @@ document.querySelectorAll('details input[type="number"]').forEach(e=>e.blur()) /
 if (document.querySelector('details')) {
   document.querySelector('details').remove()
 } // Remove the hack menu
-if (document.querySelector('style#cheatid')) {
-  document.querySelector('style#cheatid').remove()
+if (document.getElementById('cheatid')) {
+  document.getElementById('cheatid').remove()
 } // remove the stying
 const css = document.createElement('style')
 css.id = 'cheatid'
@@ -166,6 +166,7 @@ css.appendChild(document.createTextNode(`
     bottom: 0;
     background: rgba(0, 0, 0, 0.7);
     background-size: cover;
+    border-top-left-radius: 1em;
     color: white;
     padding: 1em;
     max-width: 100vw;
