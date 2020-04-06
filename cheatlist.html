@@ -9,12 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Dogeminer 2 Cheats</title>
     <style>
+      @font-face {
+        font-family: 'Doge Sans';
+        src: url(https://dogeminer2.com/dogesans-regular-webfont.woff)
+      }
+
       body {
         color: black;
+        text-align: center;
+        font-family: 'Doge Sans', sans-serif;
         border-radius: 1em;
         border: solid 0.1em blue;
         padding: 1em;
-        text-align: center;
       }
 
       article {
@@ -35,7 +41,6 @@
   </head>
 
   <body>
-    <h3>List of cheats</h3>
     <script>
       const dogeminer = Object.setPrototypeOf(new Proxy(() => { }, {
         get(obj, prop) {
@@ -54,7 +59,7 @@
       }).forEach(document.body.appendChild.bind(document.body))
     </script>
     <script>
-      top.document.querySelector('iframe').style.height = (document.body.offsetHeight + 16) + 'px'
+      top.document.querySelector('iframe').style.height = (document.body.offsetHeight + 27) + 'px'
     </script>
   </body>
 
