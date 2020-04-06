@@ -153,8 +153,12 @@ document.querySelectorAll('details input[type="number"]').forEach(e=>e.blur()) /
 if (document.querySelector('details')) {
   document.querySelector('details').remove()
 } // Remove the hack menu
-
+if (document.querySelector('style#cheatid')) {
+  document.querySelector('style#cheatid').remove()
+} // remove the stying
 const css = document.createElement('style')
+css.id = 'cheatid'
+
 css.appendChild(document.createTextNode(`
   details {
     position: fixed;
@@ -163,12 +167,11 @@ css.appendChild(document.createTextNode(`
     background: rgba(0, 0, 0, 0.7);
     background-size: cover;
     color: white;
-    border-top-left-radius: 1em;
     padding: 1em;
     max-width: 100vw;
     z-index: 5;
   }
-
+  
   summary a {
     color: skyblue
   }
