@@ -27,12 +27,13 @@
     </h1>
     <script>
       document.getElementById('install').addEventListener('dragend', event => {
-        if (event.y < 0) { // if they drag it to the bookmarks bar
+        if (event.y <= 0) { // if they drag it to the bookmarks bar
           location = './thanks.html' // redirect to the thanks page
         }
       })
     </script>
-    <p>Instructions on how to use it will appear after installation, or you can click this link:
+    <p>Instructions on how to use it will appear after installation, or you can
+      click this link:
     </p>
     <a href="thanks.html" class="forward">FAQ</a>
     <!-- GitHub corner -->
@@ -81,7 +82,9 @@
       }
     </style>
     <hr />
-    version 4.0.2
+    <footer>
+      version 4.0.2
+    </footer>
   </body>
 
 </html>
