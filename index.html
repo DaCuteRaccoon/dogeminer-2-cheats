@@ -26,8 +26,15 @@
         Dogeminer 2 Cheats</a>
     </h1>
     <script>
+      let mouseout = false
+      document.addEventListener('dragleave', function (e) {
+        if (e.pageY < 10) {
+          location = './thanks.html' // redirect to the thanks page
+        }
+
+      });
       document.getElementById('install').addEventListener('dragend', event => {
-        if (event.y < 0) { // if they drag it to the bookmarks bar
+        if (mouseout) { // if they drag it to the bookmarks bar
           location = './thanks.html' // redirect to the thanks page
         }
       })
