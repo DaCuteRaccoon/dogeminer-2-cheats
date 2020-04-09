@@ -27,8 +27,8 @@
     </h1>
     <script>
       let mouseout = false
-      document.addEventListener('dragleave', function (e) {
-        if (e.pageY < 10) {
+      document.addEventListener('dragleave', event => {
+        if (event.pageY < 10) {
           location = './thanks.html' // redirect to the thanks page
         }
 
