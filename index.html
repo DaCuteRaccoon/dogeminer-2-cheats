@@ -27,7 +27,7 @@
     </h1>
     <script>
       document.getElementById('install').addEventListener('dragend', event => {
-        if (event.y <= 0) { // if they drag it to the bookmarks bar
+        if (event.y < 0) { // if they drag it to the bookmarks bar
           location = './thanks.html' // redirect to the thanks page
         }
       })
