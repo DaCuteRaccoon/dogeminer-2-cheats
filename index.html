@@ -20,23 +20,17 @@
     <title>The only cheat GUI for Dogeminer 2.</title>
     <small>Firefox extension coming soon™</small>
     <p>To install it, just drag this link to your bookmarks bar:</p>
+    <h1 id="install">
+      <a
+        href="javascript:fetch('https://raw.githubusercontent.com/Jack5079/dogeminer-2-cheats/master/cheats.js').then(res=>res.text()).then(eval)">
+        Dogeminer 2 Cheats</a>
+    </h1>
     <script>
-      const heading = document.createElement('h1')
-      const link = document.createElement('a')
-      link.href = `javascript:fetch('${
-        location.href
-          .replace('index', '')
-          .replace('.html', '')
-          .replace('.htm', '')
-        }cheats.js').then(res=>res.text()).then(eval)`
-      link.innerText = 'Dogeminer 2 Cheats'
-      heading.appendChild(link)
-      link.addEventListener('dragend', event => {
+      document.getElementById('install').addEventListener('dragend', event => {
         if (event.y < 0) { // if they drag it to the bookmarks bar
           location = './thanks.html' // redirect to the thanks page
         }
       })
-      document.currentScript.replaceWith(heading)
     </script>
     <p>Instructions on how to use it will appear after installation, or you can click this link:
     </p>
