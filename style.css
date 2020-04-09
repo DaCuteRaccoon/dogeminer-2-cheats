@@ -6,10 +6,10 @@
 title {
   display: block;
   font-size: 2em;
-  text-align: left;
 }
 
 body {
+  text-align: center;
   font-family: 'Doge Sans', sans-serif;
   background: black;
   color: white;
@@ -17,45 +17,6 @@ body {
 
 a {
   color: skyblue;
-}
-
-h1 a {
-  text-align: right;
-  cursor: grab;
-  text-decoration: none;
-  border-bottom: 0.1em solid skyblue;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-h1 a:active::after {
-  position: fixed;
-  pointer-events: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  text-align: center;
-  width: 100vw;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  content: '↑';
-  animation: hover 1s ease infinite;
-}
-
-@keyframes hover {
-  0% {
-    padding-top: 0;
-  }
-  50% {
-    padding-top: 1em;
-  }
-  100% {
-    padding-top: 0;
-  }
 }
 
 noscript {
