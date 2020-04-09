@@ -25,23 +25,7 @@
         href="javascript:fetch('https://raw.githubusercontent.com/Jack5079/dogeminer-2-cheats/master/cheats.js').then(res=>res.text()).then(eval)">
         Dogeminer 2 Cheats</a>
     </h1>
-    <script>
-      let mouseout = false
-      document.addEventListener('dragleave', event => {
-        if (event.pageY < 10) {
-          location = './thanks.html' // redirect to the thanks page
-        }
-
-      });
-      document.getElementById('install').addEventListener('dragend', event => {
-        if (mouseout) { // if they drag it to the bookmarks bar
-          location = './thanks.html' // redirect to the thanks page
-        }
-      })
-    </script>
-    <p>Instructions on how to use it will appear after installation, or you can
-      click this link:
-    </p>
+    <p>After that, click this link:</p>
     <a href="thanks.html" class="forward">FAQ</a>
     <!-- GitHub corner -->
     <a href="https://github.com/Jack5079/dogeminer-2-cheats" class="github-corner"
