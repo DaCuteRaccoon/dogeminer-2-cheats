@@ -70,38 +70,6 @@ details>li {
   margin-left: 1em;
 }
 
-.back, .forward {
-  text-decoration: none;
-}
-
-.back {
-  margin-left: 1%;
-}
-
-.back::before {
-  content: '←';
-  right: 1%;
-  transition: right 1s;
-}
-
-.back::before, .forward::after {
-  position: relative;
-}
-
-.back:hover::before {
-  right: 2%;
-}
-
-.forward:hover::after {
-  left: 2%;
-}
-
-.forward::after {
-  content: '→';
-  left: 1%;
-  transition: left 1s;
-}
-
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out
 }
