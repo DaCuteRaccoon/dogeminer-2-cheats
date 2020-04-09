@@ -182,6 +182,11 @@ css.appendChild(document.createTextNode(`
   details article input[type="number"] {
     width: 100%;
   }
+
+  /* Block ads as they cover the cheat menu */
+  .img_ad {
+    display: none
+  }
 `))
 document.head.appendChild(css)
 const hackmenu = document.createElement('details')

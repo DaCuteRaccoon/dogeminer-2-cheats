@@ -9,6 +9,10 @@
       "type": "firefox",
       "request": "launch",
       "reAttach": true,
+      "reloadOnChange": {
+        "watch": "${workspaceFolder}/**/*.*",
+        "ignore": "**/node_modules/**"
+      },
       "file": "${workspaceFolder}/index.html"
     },
     {
