@@ -79,8 +79,10 @@
       <h1>Bookmarklet</h1>
       <p>Drag this to your bookmarks bar:</p>
       <h1 id="install">
-        <a
-          href="javascript:fetch('https://raw.githubusercontent.com/Jack5079/dogeminer-2-cheats/master/cheats.js').then(res=>res.text()).then(eval)">
+        <a href="javascript:
+          fetch('https://raw.githubusercontent.com/Jack5079/dogeminer-2-cheats/master/cheats.js')
+            .then(res=>res.text())
+            .then(eval)">
           Dogeminer 2 Cheats</a>
         <script>
           if (location.host.startsWith('localhost')) {
@@ -89,9 +91,6 @@
             fetch('${location.protocol}//${location.host}/cheats.js')
                 .then(res=>res.text())
                 .then(eval)`
-              .split('\n')
-              .map(line => line.trim())
-              .join('')
           }
         </script>
       </h1>
