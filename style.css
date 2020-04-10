@@ -44,6 +44,10 @@ details>li {
   right: 0;
 }
 
+.octo-arm {
+  transform-origin: 130px 106px;
+}
+
 @keyframes octocat-wave {
   0%, 100% {
     transform: rotate(0)
