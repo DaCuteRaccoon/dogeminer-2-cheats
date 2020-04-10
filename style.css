@@ -35,6 +35,15 @@ details>li {
   animation: octocat-wave 560ms ease-in-out
 }
 
+.github-corner svg {
+  fill: #fff;
+  color: #151513;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+
 @keyframes octocat-wave {
   0%, 100% {
     transform: rotate(0)
