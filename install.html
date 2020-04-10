@@ -84,7 +84,14 @@
           Dogeminer 2 Cheats</a>
         <script>
           if (location.host.startsWith('localhost')) {
-            document.currentScript.parentElement.querySelector('a').href = `javascript:fetch('${location.protocol}//${location.host}/cheats.js').then(res=>res.text()).then(eval)`
+            document.currentScript.parentElement.querySelector('a').href = `
+            javascript:  
+            fetch('${location.protocol}//${location.host}/cheats.js')
+                .then(res=>res.text())
+                .then(eval)`
+              .split('\n')
+              .map(line => line.trim())
+              .join('')
           }
         </script>
       </h1>
