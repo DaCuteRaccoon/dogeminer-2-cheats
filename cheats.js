@@ -242,10 +242,8 @@ doge.player = new Proxy(player, {
   set (obj, prop, value) {
     if (prop === 'coins') {
       coin.value = Math.round(value)
-      return Reflect.set(...arguments)
-    } else {
-      return Reflect.set(...arguments)
     }
+    return Reflect.set(...arguments)
   }
 })
 coin.id = random(26)
