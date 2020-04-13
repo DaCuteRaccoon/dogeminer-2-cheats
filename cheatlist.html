@@ -55,7 +55,10 @@
       }).forEach(document.body.appendChild.bind(document.body))
     </script>
     <script>
-      top.document.getElementById('list').replaceWith(...document.body.querySelectorAll('article'))
+      top
+        .document
+        .getElementById('list')
+        .replaceWith(...document.querySelectorAll('article'))
     </script>
   </body>
 
