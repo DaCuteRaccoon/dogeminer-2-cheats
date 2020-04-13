@@ -21,32 +21,28 @@
         border-radius: 1em;
         border: solid 0.1em blue;
         padding: 1em;
+        height: 100%;
       }
 
       article {
-        background: linear-gradient(to top right, blue, red);
+        background: linear-gradient(to top right, transparent, red);
         display: inline-block;
         padding: 1em;
         color: white;
         border-radius: 1em;
         margin: 1em;
       }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: white;
-        }
-      }
     </style>
   </head>
 
   <body>
     <script>
-      const dogeminer = Object.setPrototypeOf(new Proxy(() => { }, {
-        get(obj, prop) {
-          return dogeminer
-        }
-      }), Function.prototype)
+      const dogeminer = Object.setPrototypeOf(
+        new Proxy(() => { }, {
+          get(obj, prop) {
+            return dogeminer
+          }
+        }), Function.prototype)
     </script>
     <script src="cheats.js"></script>
     <script>
@@ -59,7 +55,7 @@
       }).forEach(document.body.appendChild.bind(document.body))
     </script>
     <script>
-      top.document.getElementById('list').style.height = (document.body.offsetHeight + 27) + 'px'
+      top.document.getElementById('list').replaceWith(...document.body.querySelectorAll('article'))
     </script>
   </body>
 
