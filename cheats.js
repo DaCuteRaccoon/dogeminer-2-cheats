@@ -4,17 +4,12 @@
  *
  * @param {number} length
  * @returns {string} A random string.
+ * @author
  */
-function random (length) {
-  return Array(length)
-    .fill()
-    .map(() =>
-      Math.random()
-        .toString(36)
-        .replace(/\.|[0-9]/g, '')
-        .substr(1, 1)
-    )
-    .join('')
+const nanoid = (length = 21) => {
+  let e = "", r = crypto.getRandomValues(new Uint8Array(length)); for (; length--;) {
+    let n = 63 & r[length]; e += n < 36 ? n.toString(36) : n < 62 ? (n - 26).toString(36).toUpperCase() : n < 63 ? "_" : "-"
+  } return e
 }
 /**
  * @typedef Bonus
@@ -141,15 +136,13 @@ function random (length) {
  */
 
 /** @type {Game} */
-const doge = dogeminer
+const { rock, bonus, loot, game, tweens, helperfunctions: helper, news, player } = window.dogeminer
 
-const { rock, bonus, loot, game, tweens, helperfunctions: helper, news, player } = doge
-
-news.showNews('Thanks for using Dogeminer 2 Cheats!', random(26))
+news.showNews('Thanks for using Dogeminer 2 Cheats!', nanoid(26))
 
 // Remove the previous version
-document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox=>checkbox.click()) // Disable every cheat
-document.querySelectorAll('details input[type="number"]').forEach(e=>e.blur()) // Unpause every edit cheat
+document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox => checkbox.click()) // Disable every cheat
+document.querySelectorAll('details input[type="number"]').forEach(e => e.blur()) // Unpause every edit cheat
 if (document.querySelector('details')) {
   document.querySelector('details').remove()
 } // Remove the hack menu
@@ -200,27 +193,27 @@ hackmenu.appendChild(summary)
 
 /** @type {Object.<string, ()=>number>} */
 const hacks = {
-  'Increase your dogecoin per second': ()=>setInterval(bonus.addSpecialBonus),
-  Autoclicker: ()=>setInterval(rock.mineRock),
-  'Dev loot': ()=>setInterval(loot.devLoot),
-  'Increase your dogecoin per click': ()=>setInterval(()=>{
+  'Increase your dogecoin per second': () => setInterval(bonus.addSpecialBonus),
+  Autoclicker: () => setInterval(rock.mineRock),
+  'Dev loot': () => setInterval(loot.devLoot),
+  'Increase your dogecoin per click': () => setInterval(() => {
     game.extrastrength++
   }),
-  'Stop all animations': ()=>setInterval(tweens.stopEverything),
-  '🦀 THE ROCK IS GONE 🦀': ()=>setInterval(()=>rock.doRockDamage(100)),
-  'Bonuscoin spam': ()=>setInterval(bonus.createBonuscoin),
-  'Map spam': ()=>setInterval(loot.dropMap),
-  'Diamond spam': ()=>setInterval(loot.dropDiamond),
-  'Bag spam': ()=>setInterval(loot.dropBag)
+  'Stop all animations': () => setInterval(tweens.stopEverything),
+  '🦀 THE ROCK IS GONE 🦀': () => setInterval(() => rock.doRockDamage(100)),
+  'Bonuscoin spam': () => setInterval(bonus.createBonuscoin),
+  'Map spam': () => setInterval(loot.dropMap),
+  'Diamond spam': () => setInterval(loot.dropDiamond),
+  'Bag spam': () => setInterval(loot.dropBag)
 }
 
 Object.entries(hacks).map(([name, hack]) => {
   const container = document.createElement('article')
   const checkbox = document.createElement('input')
-  checkbox.id = random(26)
+  checkbox.id = nanoid()
   checkbox.type = 'checkbox'
   let id = 0
-  checkbox.addEventListener('input', ()=>{
+  checkbox.addEventListener('input', () => {
     if (id && !checkbox.checked) {
       clearInterval(id)
     } else {
@@ -246,10 +239,10 @@ doge.player = new Proxy(player, {
     return Reflect.set(...arguments)
   }
 })
-coin.id = random(26)
+coin.id = nanoid(26)
 coin.type = 'number'
 coin.placeholder = 'Coin count...'
-coin.addEventListener('input', ()=>{
+coin.addEventListener('input', () => {
   if (coin.value.length - 1) {
     player.coins = Number(coin.value)
   }
