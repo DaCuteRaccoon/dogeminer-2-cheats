@@ -154,20 +154,21 @@ const nanoid = (length = 21) => {
  */
 
 /** @type {Game} */
-const doge = window.doge
+const doge = window.dogeminer
 const { rock, bonus, loot, game, tweens, helperfunctions: helper, news, player } = doge
 
 news.showNews('Thanks for using Dogeminer 2 Cheats!', Symbol('Dogeminer 2 Cheats Startup'))
 
 // Remove the previous version
-document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox => checkbox.click()) // Disable every cheat
-document.querySelectorAll('details input[type="number"]').forEach(e => e.blur()) // Unpause every edit cheat
-if (document.querySelector('details')) {
-  document.querySelector('details').remove()
-} // Remove the hack menu
-if (document.getElementById('cheatid')) {
-  document.getElementById('cheatid').remove()
-} // remove the stying
+function removeCheats () {
+  document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox => checkbox.click()) // Disable every cheat
+  document.querySelectorAll('details input[type="number"]').forEach(e => e.blur()) // Unpause every edit cheat
+  document.querySelector('details')?.remove() // Remove the hack menu
+  document.getElementById('cheatid')?.remove() // remove the stying
+}
+
+removeCheats()
+
 const css = document.createElement('style')
 css.id = 'cheatid'
 
@@ -245,7 +246,7 @@ Object.entries(hacks).map(([name, hack]) => {
   label.innerText = name
   container.appendChild(label)
   return container
-}).forEach(hackmenu.appendChild.bind(hackmenu))
+}).forEach(Element.prototype.appendChild.bind(hackmenu))
 
 //#region
 const container = document.createElement('article')
@@ -253,9 +254,9 @@ const coin = document.createElement('input')
 doge.player = new Proxy(player, {
   set (obj, prop, value) {
     if (prop === 'coins') {
-      coin.value = Math.round(value)
+      coin.value = Math.round(value).toString()
     }
-    return Reflect.set(...arguments)
+    return Reflect.set(obj, prop, value)
   }
 })
 coin.id = nanoid(26)
