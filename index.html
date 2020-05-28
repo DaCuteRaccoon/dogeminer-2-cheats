@@ -107,7 +107,22 @@
       </svg></a>
     <hr />
     <footer>
-      version 4.0.2
+      <script>
+        fetch('./cheats.js')
+          .then(res => res.text())
+          .then(txt =>
+            txt
+              .split('\n')
+              .find(line => line.includes('@version'))
+              .trim()
+              .replace('* @', '')
+          ).then(txt => {
+            const ver = document.createElement('p')
+            ver.innerText = txt
+            return ver
+          })
+          .then(Element.prototype.replaceWith.bind(document.currentScript))
+      </script>
     </footer>
   </body>
 
