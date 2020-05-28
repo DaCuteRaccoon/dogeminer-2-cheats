@@ -1,16 +1,3 @@
-/* global dogeminer, Reflect, Proxy */
-/**
- * make a random string (made for ids)
- *
- * @param {number} length
- * @returns {string} A random string.
- * @author
- */
-const nanoid = (length = 21) => {
-  let e = "", r = crypto.getRandomValues(new Uint8Array(length)); for (; length--;) {
-    let n = 63 & r[length]; e += n < 36 ? n.toString(36) : n < 62 ? (n - 26).toString(36).toUpperCase() : n < 63 ? "_" : "-"
-  } return e
-}
 /**
  * @typedef Bonus
  * @type {object}
@@ -256,7 +243,6 @@ const hacks = {
 Object.entries(hacks).map(([name, hack]) => {
   const container = document.createElement('article')
   const checkbox = document.createElement('input')
-  checkbox.id = nanoid()
   checkbox.type = 'checkbox'
   let id = 0
   checkbox.addEventListener('input', () => {
@@ -266,11 +252,10 @@ Object.entries(hacks).map(([name, hack]) => {
       id = hack()
     }
   })
-  container.appendChild(checkbox)
   const label = document.createElement('label')
-  label.htmlFor = checkbox.id
-  label.innerText = name
   container.appendChild(label)
+  label.appendChild(checkbox)
+  label.innerHTML += name
   return container
 }).forEach(Element.prototype.appendChild.bind(hackmenu))
 
@@ -285,8 +270,8 @@ doge.player = new Proxy(player, {
     return Reflect.set(obj, prop, value)
   }
 })
-coin.id = nanoid(26)
 coin.type = 'number'
+coin.title = 'Dogecoin count'
 coin.placeholder = 'Coin count...'
 coin.addEventListener('input', () => {
   if (coin.value.length - 1) {
@@ -295,14 +280,8 @@ coin.addEventListener('input', () => {
 })
 coin.addEventListener('focus', helper.pauseCoins)
 coin.addEventListener('blur', helper.unpauseCoins)
-//#region
-const label = document.createElement('label')
-label.htmlFor = coin.id
-label.innerText = 'Dogecoin count'
-container.appendChild(label)
 container.appendChild(coin)
 hackmenu.appendChild(container)
-//#endregion
 //#endregion
 
 document.body.appendChild(hackmenu)
