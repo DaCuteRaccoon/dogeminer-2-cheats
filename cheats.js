@@ -116,10 +116,11 @@ const nanoid = (length = 21) => {
  * @property {()=>boolean} isThereABag
  */
 /**
+ * Utility functions
  * @typedef Helper
  * @type {object}
  * @property {()=>void} unpauseCoins Revert pauseCoins.
- * @property {()=>void} pauseCoins Stop the dogecoin count from increasing. Note that devLoot is not affected.
+ * @property {()=>void} pauseCoins Stop the dogecoin count from increasing. Note that Loot.devLoot is not affected.
  * @property {(e: number)=>string} romanize Convert a number to roman
  * @property {(e: number)=>string} msToMinsSecs Convert a ms value to minute:seconds. Will not function somewhere above 59_999_999_999_999_990_999_999_999
  * @property {(e: number)=>string} beautify Add commas every 3 digits.
