@@ -125,6 +125,9 @@ const nanoid = (length = 21) => {
  * @property {(e: number)=>string} beautify Add commas every 3 digits.
  * @property {(e: number)=>string} beautifyCoins Add commas every 3 digits, and add billion (B), million (M), and trillion (T) prefixes.
  * @property {(e: number)=>string} beautifyCost Add commas every 3 digits, and add a billion (Billiion) prefix.
+ * @property {(e: number)=>void} removeCoins Remove coins from the counter. Ex: dogeminer.helperfunctions.removeCoins(Infinity) will remove all coins
+ * @property {()=>number} getPersec Get the DPS of the player.
+ * @property {(e: any[])=>void} shuffle Overwrite an array with a shuffled version.
  */
 
 /**
