@@ -226,9 +226,6 @@ const hacks = {
   'Increase your dogecoin per second': () => setInterval(bonus.addSpecialBonus),
   Autoclicker: () => setInterval(rock.mineRock),
   'Dev loot': () => setInterval(loot.devLoot),
-  'Increase your dogecoin per click': () => setInterval(() => {
-    game.extrastrength++
-  }),
   'Stop all animations': () => setInterval(tweens.stopEverything),
   '🦀 THE ROCK IS GONE 🦀': () => setInterval(() => rock.doRockDamage(100)),
   'Bonuscoin spam': () => setInterval(bonus.createBonuscoin),
