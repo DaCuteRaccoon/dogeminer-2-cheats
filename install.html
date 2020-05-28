@@ -91,6 +91,7 @@
             fetch('${location.protocol}//${location.host}/cheats.js')
                 .then(res=>res.text())
                 .then(eval)`
+            document.currentScript.parentElement.querySelector('a').innerText = 'Dogeminer 2 Cheats: Dev'
           }
         </script>
       </h1>
