@@ -211,7 +211,11 @@ summary.innerHTML = `Dogeminer 2 Cheats by
 hackmenu.appendChild(summary)
 
 
-/** @type {Object.<string, ()=>number>} */
+/**
+ * The interval cheats.
+ * @todo #5 More cheats! 
+ * @type {Object.<string, ()=>number>} 
+ * */
 const hacks = {
   'Increase your dogecoin per second': () => setInterval(bonus.addSpecialBonus),
   Autoclicker: () => setInterval(rock.mineRock),
