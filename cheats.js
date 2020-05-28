@@ -122,6 +122,13 @@ const nanoid = (length = 21) => {
  * @property {()=>void} pauseCoins
  * @property {(e: number)=>string} romanize - Convert a number to roman
  */
+
+/**
+ * @typedef News
+ * @type {object}
+ * @property {()=>void} initNews
+ * @property {(text: string, id: any)=>void} showNews
+ */
 /**
  * @typedef Game
  * @type {object}
@@ -133,12 +140,14 @@ const nanoid = (length = 21) => {
  * @property {Helper} helperfunctions
  * @property {()=>void} testa
  * @property {(e: string)=>number} hex2int
+ * @property {News} news
  */
 
 /** @type {Game} */
-const { rock, bonus, loot, game, tweens, helperfunctions: helper, news, player } = window.dogeminer
+const doge = window.doge
+const { rock, bonus, loot, game, tweens, helperfunctions: helper, news, player } = doge
 
-news.showNews('Thanks for using Dogeminer 2 Cheats!', nanoid(26))
+news.showNews('Thanks for using Dogeminer 2 Cheats!', Symbol('Dogeminer 2 Cheats Startup'))
 
 // Remove the previous version
 document.querySelectorAll('details input[type="checkbox"]:checked').forEach(checkbox => checkbox.click()) // Disable every cheat
