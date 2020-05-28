@@ -224,7 +224,10 @@ const hacks = {
   'Bonuscoin spam': () => setInterval(bonus.createBonuscoin),
   'Map spam': () => setInterval(loot.dropMap),
   'Diamond spam': () => setInterval(loot.dropDiamond),
-  'Bag spam': () => setInterval(loot.dropBag)
+  'Bag spam': () => setInterval(loot.dropBag),
+  'Dogecoin Black Hole': () => setInterval(() => {
+    helper.removeCoins(player.coins / 5)
+  })
 }
 
 Object.entries(hacks).map(([name, hack]) => {
