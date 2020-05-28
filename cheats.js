@@ -152,13 +152,16 @@ const nanoid = (length = 21) => {
  * @type {object}
  * @property {()=>HTMLCanvasElement} switchLevel Get the <canvas> element the game is in
  */
+
 /**
+ * @todo Document rock, game, and player
  * @typedef Game
  * @type {object}
  * @property {Loot} loot
  * @property {Bonus} bonus
- * @property {Rock} rock
- * @property {GameObj} game
+ * @property {any} rock
+ * @property {any} game
+ * @property {any} player
  * @property {Tweens} tweens
  * @property {Helper} helperfunctions
  * @property {()=>void} testa
