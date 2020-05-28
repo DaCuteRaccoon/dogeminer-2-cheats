@@ -118,9 +118,10 @@ const nanoid = (length = 21) => {
 /**
  * @typedef Helper
  * @type {object}
- * @property {()=>void} unpauseCoins
- * @property {()=>void} pauseCoins
- * @property {(e: number)=>string} romanize - Convert a number to roman
+ * @property {()=>void} unpauseCoins Revert pauseCoins.
+ * @property {()=>void} pauseCoins Stop the dogecoin count from increasing. Note that devLoot is not affected.
+ * @property {(e: number)=>string} romanize Convert a number to roman
+ * @property {(e: number)=>string} msToMinsSecs Convert a ms value to minute:seconds. Will not function somewhere above 59_999_999_999_999_990_999_999_999
  */
 
 /**
@@ -128,8 +129,9 @@ const nanoid = (length = 21) => {
  * @type {object}
  * @property {()=>void} initNews
  * @property {(text: string, id: any)=>void} showNews Show a news ticker with text. The id must be unique.
- * @property {()=>boolean} isReady 
+ * @property {()=>boolean} isReady
  * @property {()=>void} removeNews Fade out the news ticker.
+ * @property {()=>void} isShowingNews Is the news ticker on the screen?
  */
 /**
  * @typedef Game
