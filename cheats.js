@@ -122,6 +122,9 @@ const nanoid = (length = 21) => {
  * @property {()=>void} pauseCoins Stop the dogecoin count from increasing. Note that devLoot is not affected.
  * @property {(e: number)=>string} romanize Convert a number to roman
  * @property {(e: number)=>string} msToMinsSecs Convert a ms value to minute:seconds. Will not function somewhere above 59_999_999_999_999_990_999_999_999
+ * @property {(e: number)=>string} beautify Add commas every 3 digits.
+ * @property {(e: number)=>string} beautifyCoins Add commas every 3 digits, and add billion (B), million (M), and trillion (T) prefixes.
+ * @property {(e: number)=>string} beautifyCost Add commas every 3 digits, and add a billion (Billiion) prefix.
  */
 
 /**
