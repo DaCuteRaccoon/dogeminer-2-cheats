@@ -68,22 +68,3 @@ details>li {
     animation: octocat-wave 560ms ease-in-out
   }
 }
-
-#cheatlist {
-  color: black;
-  text-align: center;
-  font-family: 'Doge Sans', sans-serif;
-  border-radius: 1em;
-  border: solid 0.1em blue;
-  padding: 1em;
-  height: 100%;
-}
-
-#cheatlist article {
-  background: linear-gradient(to top right, transparent, red);
-  display: inline-block;
-  padding: 1em;
-  color: white;
-  border-radius: 1em;
-  margin: 1em;
-}

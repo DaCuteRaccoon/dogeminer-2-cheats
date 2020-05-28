@@ -139,6 +139,18 @@ const nanoid = (length = 21) => {
  * @property {()=>void} removeNews Fade out the news ticker.
  * @property {()=>void} isShowingNews Is the news ticker on the screen?
  */
+
+/**
+ * @typedef Controller
+ * @type {object}
+ * @property {(e: number)=>void} switchLevel Move between planets. 1 = Earth, 2 = Moon, 3 = Mars, 4 = Jupiter, 5 = Titan
+ */
+
+/**
+ * @typedef GameDev
+ * @type {object}
+ * @property {()=>HTMLCanvasElement} switchLevel Get the <canvas> element the game is in
+ */
 /**
  * @typedef Game
  * @type {object}
@@ -150,7 +162,10 @@ const nanoid = (length = 21) => {
  * @property {Helper} helperfunctions
  * @property {()=>void} testa
  * @property {(e: string)=>number} hex2int
+ * @property {number} coinsMinedWhileAway
  * @property {News} news
+ * @property {Controller} controller
+ * @property {GameCav} gamecanvas
  */
 
 /** @type {Game} */
