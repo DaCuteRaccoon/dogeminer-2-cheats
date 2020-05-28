@@ -127,7 +127,9 @@ const nanoid = (length = 21) => {
  * @typedef News
  * @type {object}
  * @property {()=>void} initNews
- * @property {(text: string, id: any)=>void} showNews
+ * @property {(text: string, id: any)=>void} showNews Show a news ticker with text. The id must be unique.
+ * @property {()=>boolean} isReady 
+ * @property {()=>void} removeNews Fade out the news ticker.
  */
 /**
  * @typedef Game
