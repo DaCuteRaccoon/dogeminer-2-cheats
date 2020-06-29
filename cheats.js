@@ -102,7 +102,7 @@
  * @type {object}
  * @property {()=>boolean} bagIsOpen
  * @property {()=>void} devLoot
- * @property {(e)=>void} dropMap
+ * @property {()=>void} dropMap
  * @property {()=>void} dropDiamond
  * @property {()=>void} dropBag
  * @property {()=>boolean} isThereABag
