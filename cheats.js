@@ -1,7 +1,7 @@
 /**
  * @file Dogeminer 2 Cheats - Main
  * @author Jack <hello@5079.ml> (5079.ml)
- * @version 4.0.1
+ * @version 4.1.0
  */
 
 const {
