@@ -117,7 +117,7 @@ Object.entries(hacks).map(([name, hack]) => {
 AddDogecoinNumber: {
   const container = document.createElement("article");
   const coin = document.createElement("input");
-  window.dogeminer.player = new Proxy(player, {
+  dogeminer.player = new Proxy(player, {
     set(obj, prop, value) {
       if (prop === "coins") {
         coin.value = Math.round(value).toString();
