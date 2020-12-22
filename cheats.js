@@ -102,13 +102,8 @@ hackmenu.append(...Object.entries(hacks).map(([name, hack]) => {
   const checkbox = document.createElement('input')
   checkbox.type = 'checkbox'
   let id = 0
-  checkbox.addEventListener('change', () => {
-    console.log('change')
-  })
-  checkbox.addEventListener('input', () => {
-    console.log('input')
-  })
-  checkbox.addEventListener('click', () => {
+
+  __rocketLoaderLoadProgressSimulator.nativeWindowAddEventListener.call(checkbox, 'mouseenter', () => {
     console.log('click')
     if (id && !checkbox.checked) {
       console.log('changed')
