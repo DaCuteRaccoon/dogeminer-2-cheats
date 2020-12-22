@@ -68,3 +68,44 @@ details>li {
     animation: octocat-wave 560ms ease-in-out
   }
 }
+
+h1 a {
+  color: white;
+  text-align: right;
+  cursor: grab;
+  text-decoration: none;
+  border-bottom: 0.1em solid white;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+h1 a:active::after {
+  position: fixed;
+  pointer-events: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  text-align: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100vw;
+  content: '↑';
+  animation: hover 1s ease infinite;
+}
+
+@keyframes hover {
+  0% {
+    padding-top: 0;
+  }
+  50% {
+    padding-top: 1em;
+  }
+  100% {
+    padding-top: 0;
+  }
+}

@@ -18,17 +18,32 @@
 
   <body>
     <title>The only cheat GUI for Dogeminer 2.</title>
-    <iframe width="100%" height="300px" src="install.html" title="How to install" frameborder="0"></iframe>
+    <h1>
+      <a href="javascript:
+                fetch('https://raw.githubusercontent.com/Jack5079/dogeminer-2-cheats/master/cheats.js')
+                  .then(res=>res.text())
+                  .then(eval)">
+        Dogeminer 2 Cheats</a>
+      <script>
+        if (location.host.startsWith('localhost')) {
+          document.currentScript.parentElement.querySelector('a').href = `
+                  javascript:  
+                  fetch('${location.protocol}//${location.host}/cheats.js')
+                      .then(res=>res.text())
+                      .then(eval)`
+          document.currentScript.parentElement.querySelector('a').innerText = 'Dogeminer 2 Cheats: Dev'
+        }
+      </script>
+    </h1>
     <h2>How To Use</h2>
     <ol style="text-align: left;">
       <li>Go to <a href="https://dogeminer2.com/">Dogeminer 2,</a> and click "START".</li>
-      <li>If you installed the bookmarklet, click "Dogeminer 2 Cheats" in your bookmarks bar.</li>
+      <li>Click "Dogeminer 2 Cheats" in your bookmarks bar.</li>
       <li>Click "Dogeminer 2 Cheats by Jack" at the bottom right of the game.</li>
       <li>You're done!</li>
     </ol>
     <h2>How To Update</h2>
     <p>The bookmarklet actually downloads the code from this site, so you don't need to update it.</p>
-    <video src="https://www.invidio.us/latest_version?id=YbYK-TyKGKs&itag=18" controls></video>
     <!-- GitHub corner -->
     <a href="https://github.com/Jack5079/dogeminer-2-cheats" class="github-corner" aria-label="View source on GitHub">
       <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
@@ -111,7 +126,7 @@
       <script>
         // Yep. It actually gets the version number from the file. I am sorry.
         fetch('./cheats.js')
-          .then(res => res.text())
+          .then(Function.prototype.call.bind(Response.prototype.text))
           .then(txt =>
             txt
               .split('\n')

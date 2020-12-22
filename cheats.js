@@ -12,30 +12,32 @@ const {
   tweens,
   helperfunctions: helper,
   news,
-  player,
-} = dogeminer;
+  player
+} = dogeminer
 
 news.showNews(
-  "Thanks for using Dogeminer 2 Cheats!",
-  Symbol("Dogeminer 2 Cheats Startup"),
-);
+  'Thanks for using Dogeminer 2 Cheats!',
+  Symbol('Dogeminer 2 Cheats Startup')
+)
 
 // Remove the previous version
-function removeCheats() {
+function removeCheats () {
   document.querySelectorAll('details input[type="checkbox"]:checked').forEach(
+    // @ts-ignore
     (checkbox) => checkbox.click()
-  ); // Disable every cheat
+  ) // Disable every cheat
   document.querySelectorAll('details input[type="number"]').forEach((e) =>
+    // @ts-ignore
     e.blur()
-  ); // Unpause every edit cheat
-  document.querySelector("details")?.remove(); // Remove the hack menu
-  document.getElementById("cheatid")?.remove(); // remove the stying
+  ) // Unpause every edit cheat
+  document.querySelector('details')?.remove() // Remove the hack menu
+  document.getElementById('cheatid')?.remove() // remove the stying
 }
 
-removeCheats();
+removeCheats()
 
-const css = document.createElement("style");
-css.id = "cheatid";
+const css = document.createElement('style')
+css.id = 'cheatid'
 
 css.appendChild(document.createTextNode(`
   details {
@@ -65,79 +67,90 @@ css.appendChild(document.createTextNode(`
   .img_ad {
     display: none
   }
-`));
-document.head.appendChild(css);
-const hackmenu = document.createElement("details");
+`))
+document.head.appendChild(css)
+const hackmenu = document.createElement('details')
 
-const summary = document.createElement("summary");
+const summary = document.createElement('summary')
 summary.innerHTML = `Dogeminer 2 Cheats by 
-<a href="https://jack5079.github.io">Jack</a>`;
-hackmenu.appendChild(summary);
+<a href="https://jack5079.github.io">Jack</a>`
+hackmenu.appendChild(summary)
 
 /**
  * The interval cheats.
- * @todo #5 More cheats! 
- * @type {Object.<string, ()=>number>} 
+ * @todo #5 More cheats!
+ * @type {Object.<string, ()=>number>}
  * */
 const hacks = {
-  "Increase your dogecoin per second": () => setInterval(bonus.addSpecialBonus),
+  'Increase your dogecoin per second': () => setInterval(bonus.addSpecialBonus),
   Autoclicker: () => setInterval(rock.mineRock),
-  "Dev loot": () => setInterval(loot.devLoot),
-  "Stop all animations": () => setInterval(tweens.stopEverything),
-  "🦀 THE ROCK IS GONE 🦀": () => setInterval(() => rock.doRockDamage(100)),
-  "Bonuscoin spam": () => setInterval(bonus.createBonuscoin),
-  "Map spam": () => setInterval(loot.dropMap),
-  "Diamond spam": () => setInterval(loot.dropDiamond),
-  "Bag spam": () => setInterval(loot.dropBag),
-  "Dogecoin Black Hole": () =>
+  'Dev loot': () => setInterval(loot.devLoot),
+  'Stop all animations': () => setInterval(tweens.stopEverything),
+  '🦀 THE ROCK IS GONE 🦀': () => setInterval(() => rock.doRockDamage(100)),
+  'Bonuscoin spam': () => setInterval(bonus.createBonuscoin),
+  'Map spam': () => setInterval(loot.dropMap),
+  'Diamond spam': () => setInterval(loot.dropDiamond),
+  'Bag spam': () => setInterval(loot.dropBag),
+  'Dogecoin Black Hole': () =>
     setInterval(() => {
-      helper.removeCoins(player.coins / 5);
-    }),
-};
-
-Object.entries(hacks).map(([name, hack]) => {
-  const container = document.createElement("article");
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  let id = 0;
-  checkbox.addEventListener("input", () => {
-    if (id && !checkbox.checked) {
-      clearInterval(id);
-    } else {
-      id = hack();
-    }
-  });
-  const label = document.createElement("label");
-  container.appendChild(label);
-  label.appendChild(checkbox);
-  label.innerHTML += name;
-  return container;
-}).forEach(Element.prototype.appendChild.bind(hackmenu));
-
-AddDogecoinNumber: {
-  const container = document.createElement("article");
-  const coin = document.createElement("input");
-  dogeminer.player = new Proxy(player, {
-    set(obj, prop, value) {
-      if (prop === "coins") {
-        coin.value = Math.round(value).toString();
-      }
-      return Reflect.set(obj, prop, value);
-    },
-  });
-  coin.type = "number";
-  coin.title = "Dogecoin count";
-  coin.placeholder = "Coin count...";
-  coin.addEventListener("input", () => {
-    if (coin.value.length - 1) {
-      player.coins = Number(coin.value);
-    }
-  });
-  coin.addEventListener("focus", helper.pauseCoins);
-  coin.addEventListener("blur", helper.unpauseCoins);
-  container.appendChild(coin);
-  hackmenu.appendChild(container);
-  break AddDogecoinNumber;
+      helper.removeCoins(player.coins / 5)
+    })
 }
 
-document.body.appendChild(hackmenu);
+hackmenu.append(...Object.entries(hacks).map(([name, hack]) => {
+  const container = document.createElement('article')
+  const checkbox = document.createElement('input')
+  checkbox.type = 'checkbox'
+  let id = 0
+  checkbox.addEventListener('change', () => {
+    console.log('change')
+  })
+  checkbox.addEventListener('input', () => {
+    console.log('input')
+  })
+  checkbox.addEventListener('click', () => {
+    console.log('click')
+    if (id && !checkbox.checked) {
+      console.log('changed')
+      clearInterval(id)
+    } else {
+      id = hack()
+    }
+  })
+  const label = document.createElement('label')
+  container.appendChild(label)
+  label.appendChild(checkbox)
+  label.innerHTML += name
+  return container
+}))
+
+function addDogecoin () {
+  const container = document.createElement('article')
+  const coin = document.createElement('input')
+  let __value = player.coins
+  Object.defineProperty(player, 'coins', {
+    set (value) {
+        coin.value = Math.round(value).toString()
+        __value = value
+    },
+    get () {
+      return __value
+    }
+  })
+  coin.type = 'number'
+  coin.title = 'Dogecoin count'
+  coin.placeholder = 'Coin count...'
+  coin.addEventListener('input', () => {
+    if (coin.value.length - 1) {
+      player.coins = Number(coin.value)
+    }
+  })
+  coin.addEventListener('focus', helper.pauseCoins)
+  coin.addEventListener('blur', helper.unpauseCoins)
+  container.appendChild(coin)
+  hackmenu.appendChild(container)
+}
+
+addDogecoin()
+
+document.body.appendChild(hackmenu)
