@@ -126,7 +126,7 @@
       <script>
         // Yep. It actually gets the version number from the file. I am sorry.
         fetch('./cheats.js')
-          .then(Function.prototype.call.bind(Response.prototype.text))
+          .then(res => res.json())
           .then(txt =>
             txt
               .split('\n')
